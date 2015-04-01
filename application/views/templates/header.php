@@ -7,7 +7,10 @@
 	<header>
 		<nav>
 			<ul>
-				<li><a href=""></a></li>
+				<li><a href="">Home</a></li>
+				<li><a href="">Over ons</a></li>
+				<li><a href="">Registeren</a></li>
+				<li><a href="">Zoeken</a></li>
 			</ul>
 		</nav>
 	</header>
