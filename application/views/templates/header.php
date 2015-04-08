@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("/style/default.css");?>">
-		<script type="text/javascript" src="<?php echo base_url("/script/default.js");?>"></script>
+		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("style/default.css");?>">
+		<script type="text/javascript" src="<?php echo base_url("script/default.js");?>"></script>
 		
 		<title><?php echo $title ?></title>
 	</head>
