@@ -3,6 +3,115 @@
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video {	margin: 0;	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {	display: block;}body {	line-height: 1;}ol, ul {	list-style: none;}blockquote, q {	quotes: none;}blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}table {	border-collapse: collapse;	border-spacing: 0;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {	quotes: none;}blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}table {	border-collapse: collapse;	border-spacing: 0;}
 
 /* HIER EIGEN CODE */
+
+/* header styling */
+.margin
+{
+		margin-left: 100px;
+		margin-right: 100px;
+}
+body
+{
+	background-color: #FFFDE4;
+}
+header
+{
+	position: relative;
+	width: 100%;
+	height: 20%;
+	background-color: #FFFFFF;
+	border-bottom: thick;
+	border-bottom-width: 100%;
+	border-bottom-color: #FFE2D0;
+	border-bottom-style: solid;
+	
+}
+
+#logo img
+{
+	height: 80%;
+	width: 200px;
+	margin: 10px;	
+	float: left;
+}
+nav 
+{
+	position: absolute;
+	display:block;
+	width: auto;
+	right: 10%;
+	bottom:0;
+	right: 0;
+	margin: 5px;	
+}
+
+nav ul
+{
+	list-style: none;
+		height: 20px;
+}
+
+nav li
+{
+	display: inline-block;
+	width: 100px;
+	text-align: left;
+} 
+nav li:last-child{margin-right: 100px;}
+
+nav a
+{
+	text-decoration: none;
+	color: black
+}
+nav a:hover
+{
+	color: #9C9CC9;
+}
+/* homepage */
+
+#content
+{
+	position: static;
+	padding: 1px 0px;
+	background-color: #FFFFFF;
+}
+.profiles
+{
+	width: 40%;
+	height: auto;
+	display:inline-block;
+	margin: 1px;
+}
+.profiles div
+{
+	width: auto;
+	height: auto;
+	margin: 10px;
+	float: left;
+	background-color: #706A79;
+}
+
+#inloggen
+{
+	width:40%;
+	height: auto;
+	display:inline-block;
+	float:right;
+	margin: 50px;
+	margin-top: 10px;
+	background-color: #706A79;
+}
+/* footer styling */
+
+footer
+{
+	position: static;
+	width: 100%;
+	height: 20px;
+	bottom:0;
+	background-color: #9C9CC9;
+}
