@@ -15,28 +15,37 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 }
 body
 {
-	background-color: #F7E7D5;
+	background-color: #FFFDE4;
 }
 header
 {
 	position: relative;
 	width: 100%;
-	height: 100px;
-	background-color: #F29294;
+	height: 20%;
+	background-color: #FFFFFF;
+	border-bottom: thick;
+	border-bottom-width: 100%;
+	border-bottom-color: #FFE2D0;
+	border-bottom-style: solid;
+	
 }
 
 #logo img
 {
-	height: 50px;
-	width: 50px;	
+	height: 80%;
+	width: 200px;
+	margin: 10px;	
+	float: left;
 }
 nav 
 {
 	position: absolute;
 	display:block;
-	width: 100%;
-	bottom: 0;	
-	background-color: #EBBAAB;	
+	width: auto;
+	right: 10%;
+	bottom:0;
+	right: 0;
+	margin: 5px;	
 }
 
 nav ul
@@ -50,24 +59,37 @@ nav li
 	display: inline-block;
 	width: 100px;
 	text-align: left;
-}
+} 
+nav li:last-child{margin-right: 100px;}
 
 nav a
 {
 	text-decoration: none;
 	color: black
 }
+nav a:hover
+{
+	color: #9C9CC9;
+}
 /* homepage */
 
+#content
+{
+	position: static;
+	padding: 1px 0px;
+	background-color: #FFFFFF;
+}
 .profiles
 {
 	width: 40%;
-	height: 50%;
+	height: auto;
+	display:inline-block;
+	margin: 1px;
 }
 .profiles div
 {
-	width: 100px;
-	height: 100px;
+	width: auto;
+	height: auto;
 	margin: 10px;
 	float: left;
 	background-color: #706A79;
@@ -76,15 +98,20 @@ nav a
 #inloggen
 {
 	width:40%;
-	height: 50%;
+	height: auto;
+	display:inline-block;
 	float:right;
+	margin: 50px;
+	margin-top: 10px;
 	background-color: #706A79;
 }
 /* footer styling */
 
 footer
 {
+	position: static;
 	width: 100%;
 	height: 20px;
-	background-color: #B17E87;
+	bottom:0;
+	background-color: #9C9CC9;
 }

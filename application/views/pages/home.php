@@ -1,12 +1,40 @@
 <h1>Home</h1>
 
 <div class = "profiles">
-	<div>profiel 1</div>
-	<div>profiel 2</div>
-	<div>profiel 3</div>
-	<div>profiel 4</div>
-	<div>profiel 5</div>
-	<div>profiel 6</div>
+	<div>
+		<table>
+			<tr>	
+				<a href="profilepage">
+					<img class="profilefoto" src="Blijemensen.png" alt="Fotopersoon1">
+				</a>
+			</tr>
+			
+			<tr>
+				<th>Bijnaam:</th>
+				<th><a href="profilepage">jan</a></th>
+			</tr>
+			<tr>
+				<th>Geslacht:</th>
+				<th><a href="profilepage"></a></th>
+			</tr>
+			<tr>
+				<th>Leeftijd</th>
+				<th><a href="profilepage"></a></th>
+			</tr>
+			<tr>
+				<th>Beschrijving:</th>
+				<th><a href="profilepage"></a></th>
+			</tr>
+			<tr>
+				<th>Persoonlijkheidtype:</th>
+				<th><a href="profilepage"></a></th>
+			</tr>
+			<tr>
+				<th>Merkvoorkeur:</th>
+				<th><a href="profilepage"></a></th>
+			</tr>
+		</table>
+	</div>
 </div>	
 <div id = "inloggen">
 	inloggen
