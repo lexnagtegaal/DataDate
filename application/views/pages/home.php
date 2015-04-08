@@ -2,34 +2,34 @@
 
 <div class = "profiles">
 	<div>
+	
 		<table>
-			<tr>	
-				<a href="profilepage">
-					<img class="profilefoto" src="Blijemensen.png" alt="Fotopersoon1">
-				</a>
+			<tr id="profielfoto">	
+				<th>
+				<a href="profilepage"><img class="profilefoto" src="<?php echo base_url("image/test.png");?>" alt="Fotopersoon1"></a>
+				</th>
 			</tr>
-			
-			<tr>
+			<tr class="tekst">
 				<th>Bijnaam:</th>
 				<th><a href="profilepage">jan</a></th>
 			</tr>
-			<tr>
+			<tr class="tekst">
 				<th>Geslacht:</th>
 				<th><a href="profilepage"></a></th>
 			</tr>
-			<tr>
+			<tr class="tekst">
 				<th>Leeftijd</th>
 				<th><a href="profilepage"></a></th>
 			</tr>
-			<tr>
+			<trclass="tekst">
 				<th>Beschrijving:</th>
 				<th><a href="profilepage"></a></th>
 			</tr>
-			<tr>
+			<tr class="tekst">
 				<th>Persoonlijkheidtype:</th>
 				<th><a href="profilepage"></a></th>
 			</tr>
-			<tr>
+			<tr class="tekst">
 				<th>Merkvoorkeur:</th>
 				<th><a href="profilepage"></a></th>
 			</tr>

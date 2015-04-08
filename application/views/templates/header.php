@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("style/default.css");?>">
+		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("style/template.css");?>">
+		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("style/profiles.css");?>">
 		<script type="text/javascript" src="<?php echo base_url("script/default.js");?>"></script>
 		
 		<title><?php echo $title ?></title>
