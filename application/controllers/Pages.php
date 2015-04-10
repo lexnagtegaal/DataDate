@@ -3,10 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pages extends CI_Controller 
 {
+
 	public function index()
 	{
 		$this->view();
 	}
+	
 	
 	public function view($page = 'home'){
         if ( ! file_exists(APPPATH.'/views/pages/'.$page.'.php')){
@@ -18,14 +20,9 @@ class Pages extends CI_Controller
 	
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/'.$page, $data);
-		$this->addhomeprofile();
 		$this->load->view('templates/footer', $data);
 		}
 		
-	public function addhomeprofile()
-	{
-		$this->load->model('Profiles');
-		echo $this->Profiles->homeprofile();
-	}
+
 }
 ?>

@@ -9,9 +9,9 @@
 	</head>
 	<body>
 	<header>
-		<div id="logo" class="margin">
+		<div id="logo">
 		<a href="home" >
-			<img src=" <?php echo base_url("/image/Blijemensen"); ?>">
+			<img src=" <?php echo base_url("/image/logo2"); ?>">
 		</a>
 		</div>
 		<nav>
