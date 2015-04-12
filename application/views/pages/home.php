@@ -5,7 +5,7 @@
 		<table>
 			<tr>	
 				<a href="profilepage">
-					<img class="profilefoto" src="Blijemensen.png" alt="Fotopersoon1">
+					<img class="profilefoto" src="" alt="Fotopersoon1">
 				</a>
 			</tr>
 			
@@ -36,6 +36,3 @@
 		</table>
 	</div>
 </div>	
-<div id = "inloggen">
-	inloggen
-</div>

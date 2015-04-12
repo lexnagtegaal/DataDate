@@ -1,7 +1,9 @@
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("style/default.css");?>">
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url("script/default.js");?>"></script>
+		<script type="text/javascript" src="<?php echo base_url("script/form.js");?>"></script>
 		
 		<title><?php echo $title ?></title>
 	</head>
@@ -9,7 +11,7 @@
 	<header>
 		<div id="logo" class="margin">
 		<a href="home" >
-			<img src=" <?php echo base_url("/image/Blijemensen"); ?>">
+			<img src="<?php echo base_url("image/Blijemensen.png"); ?>">
 		</a>
 		</div>
 		<nav>
