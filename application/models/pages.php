@@ -8,7 +8,7 @@
  *  - templates/footer
  */ 
 
-class pages extends CI_Model {
+class Pages extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
@@ -16,7 +16,7 @@ class pages extends CI_Model {
 	
 	//de functie voor het laden van een pagina
 	
-	function view($page="home",$data){
+	function view($page,$data){
 		
 		if ( ! file_exists(APPPATH.'/views/pages/'.$page.'.php')){
 			// Whoops, we don't have a page for that!
@@ -27,13 +27,6 @@ class pages extends CI_Model {
 		$data['title'] = ucfirst($page); // Capitalize the first letter
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/'.$page, $data);
-		
-		if($this->credentials->check_credentials()){ // Als de credentials van de gebruiker overeenkomen met iemand die ingelogd is. 
-			$this->load->view('templates/user',$data);
-		}
-		else{ //Geen credentials, geen userpagina!
-			$this->load->view('templates/login',$data);
-		}
 		
 		$this->load->view('templates/footer',$data);
 		

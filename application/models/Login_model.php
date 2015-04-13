@@ -1,6 +1,6 @@
 <?php
 
-class credentials extends CI_Model {
+class Login_model extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
@@ -8,16 +8,14 @@ class credentials extends CI_Model {
 	
 	function login($email,$password){
 		//password is als md5 hash al meegestuurd.
-		
 		$this->load->database(); // laadt het database systeem.
 		
-		//opbouw van de query
-		$this->$db->select('Bijnaam');
-		$this->$db->from('Gebruiker');
-		$this->$db->where('Email',$email);
-		$this->$db->where('Wachtwoord',$password);
-		$query=$this->$db->get();// SELECT 'Bijnaam' from Gebruiker where 'Email'=$email and 'Wachtwoord'=$password;
-	
+		//opbouw van de query'
+		$this->db->select('Bijnaam');
+		$this->db->from('Gebruikersprofiel');
+		$this->db->where('Email',strtolower($email));
+		$this->db->where('Wachtwoord',$password);
+		$query=$this->db->get();// SELECT 'Bijnaam' from Gebruiker where 'Email'=$email and 'Wachtwoord'=$password;
 		if ($query->num_rows() > 0){
 			$row = $query->row();
 			$this->session->set_userdata(array(
@@ -25,7 +23,7 @@ class credentials extends CI_Model {
 												'username'	=>	$this->encryption->encrypt($row->Bijnaam)
 												)); // Wachtwoord slaan we NIET op.
 		}else{
-			$this->session->set_flashdata('errors','<p class="error">De opgegeven gebruikersnaam en wachtwoord komen niet voor in ons systeem.</p>');
+			$this->session->set_userdata('errors','De opgegeven gebruikersnaam en wachtwoord komen niet voor in ons systeem.');
 			// De error wordt maar 1 x meegegeven, en dat is precies lang genoeg om deze weer te geven op de inlogpagina.
 		}
 	}

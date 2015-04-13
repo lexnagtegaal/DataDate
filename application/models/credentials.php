@@ -1,7 +1,7 @@
 <?php
 /* Class om verkeerd gebruik van de session tegen te gaan.
  */
-class credentials extends CI_Model {
+class Credentials extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
@@ -9,7 +9,8 @@ class credentials extends CI_Model {
 
 	function geblokt(){
 		// controleert of de tijdelijke variabel geblokt bestaat.
-		return isset($this->session->tempdata('geblokt'));
+		return null !== $this->session->tempdata('geblokt'); 
+		//isset($this->session->tempdata('geblokt'));
 	}
 	function check_credentials(){ // BOOLEAN functie
 		
@@ -30,9 +31,9 @@ class credentials extends CI_Model {
 			
 			$this->load->database(); // maakt toegang tot database mogelijk.
 			$this->load->library('encryption'); // voor het ontcijferen van de gebruikersnaam
-			$this->$db->$select('Bijnaam');
-			$this->$db->$from('Gebruiker');
-			$this->$db->$where('Bijnaam',$this->encryption->decrypt($this->session->userdata('username'))); // Ontcijferen en vergelijken.
+			$this->db->$select('Bijnaam');
+			$this->db->$from('Gebruiker');
+			$this->db->$where('Bijnaam',$this->encryption->decrypt($this->session->userdata('username'))); // Ontcijferen en vergelijken.
 
 			if(!$this->$db->$get()){ // select 'Bijnaam' from Gebruiker where Bijnaam=$bijnaam;
 				$this->session->set_tempdata('geblokt','',1200); // Creeert de Block!

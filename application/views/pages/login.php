@@ -3,17 +3,23 @@
 $required = "required"; // extra variabele om toe te kennen dat een input element required is.
 
 echo validation_errors(); // toont PHP server-side errors van het ingevulde formulier.
+?>
+<p class="error_find">
+<?php
+echo $this->session->userdata('errors'); 
+// toont sessievariabale waar eventuele foutmelding vanuit de function login uit het model login wordt meegegeven.
+$this->session->unset_userdata('errors'); // niet meer nodig, opgeruimd staat netjes.
+?>
+</p>
 
-echo $this->session->flashdata('error'); 
-// toont flashdata sessievariabale waar eventuele foutmelding vanuit de function login uit het model login wordt meegegeven.
-
-echo form_open('Home', 'id="login"'); // creert een form die weer terugverwijst naar de controller Home in dit geval.
+<?php
+echo form_open('Login', 'id="login"'); // creert een form die weer terugverwijst naar de controller Home in dit geval.
 
 //Label en Input field voor het emailadres
 ?>
-<p class="error"></p>
+<p class="error_email"></p>
 <?php
-echo form_label('E-mailadres','email');
+echo form_label('E-mailadres','email_label');
 echo form_input(array(
 			        'type'  => 'email',
 			        'name'  => 'email',
@@ -23,9 +29,9 @@ echo form_input(array(
 
 //Label en Input field voor het wachtword
 ?>
-<p class="error"></p>
+<p class="error_password"></p>
 <?php
-echo form_label('Wachtwoord','password');
+echo form_label('Wachtwoord','password_label');
 echo form_input(array(
 					'type'  => 'password',
 					'name'  => 'password',
