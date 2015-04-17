@@ -11,7 +11,7 @@ class Profile extends CI_Controller{
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->dbutil(); 
+		$this->load->dbutil();
 		// laadt de database utility class waarmee querys in xml output getoond kunnen worden voor de ajax calls
 	}
 	public function index($username){ // bijvoorbeeld: 'Profile/index/lex'
@@ -32,6 +32,29 @@ class Profile extends CI_Controller{
 		$this->db->order_by(6,'RANDOM');
 		$this->db->limit(6);
 		$this->show($this->db->get()); // SELECT * FROM GEBRUIKERSPROFIEL ORDER BY RANDOM(6) LIMIT 6;
+	}
+	
+	public function matches(){
+		// Genereert volledige array met matches op basis van ingelogd persoon
+		if($this->credentials->check_credentials()){
+			// Hier een qeury voor de matches!
+		}
+	}
+	
+	public function brand($username,$limit="0",$random=true){
+		/* functie voor het laden van de merken.
+		 * username is de username van wie de merken worden opgezocht
+		 * limit is de hoeveelheid (Standaard 0, dat resulteert in alle merken!)
+		 * random is of er een random waarde moet worden opgezocht ja of nee.
+		 */
+		
+		$this->db->select('Merk');
+		$this->db->from('Merk');
+		$this->db->where('Bijnaam',$usernaam);
+		if($random){ $this->db->order_by($limit,'RANDOM'); }
+		if($limit>0){ $this->db->limit($limit); }
+		$this->show($this->db->get()); // SELECT 'Merk' FROM MERK WHERE 'Bijnaam' = $BIJNAAM (ORDER BY RANDOM($LIMIT)) LIMIT $LIMIT;
+		
 	}
 	
 	public function search($gndr_pref,$min_age,$max_age,$I,$N,$T,$J,$brand_1,$brand_2,$brand_3,$brand_4){ 
@@ -56,8 +79,8 @@ class Profile extends CI_Controller{
 	
 	public function show($query){
 		$config = array (
-				'root'          => 'root',
-				'element'       => 'element',
+				'root'          => 'profiles',
+				'element'       => 'user',
 				'newline'       => "\n",
 				'tab'           => "\t"
 		);
