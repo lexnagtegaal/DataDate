@@ -1,0 +1,29 @@
+
+/* profielen*/ 
+
+.profiles
+{
+	width: 40%;
+	height: auto;
+	display:inline-block;
+	margin: 1px;
+}
+.profiles div
+{
+	width: auto;
+	height: auto;
+	margin: 10px;
+	float: left;
+	background-color: #E2B8AE;
+}
+
+#profielfoto img
+{
+	width: 50px;
+	heigth: 50px;
+}
+
+.tekst th
+{
+	width: 10%;
+}

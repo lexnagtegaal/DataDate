@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://www.students.science.uu.nl/~4291247/webtech2/Joke/wp3/';
+$config['base_url'] ='http://www.students.science.uu.nl/~4291247/webtech2/Joke/wp3/';
 
 /*
 |--------------------------------------------------------------------------

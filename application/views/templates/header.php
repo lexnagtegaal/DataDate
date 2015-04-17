@@ -1,15 +1,17 @@
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("/style/default.css");?>">
-		<script type="text/javascript" src="<?php echo base_url("/script/default.js");?>"></script>
+		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("style/default.css");?>">
+		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("style/template.css");?>">
+		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("style/profiles.css");?>">
+		<script type="text/javascript" src="<?php echo base_url("script/default.js");?>"></script>
 		
 		<title><?php echo $title ?></title>
 	</head>
 	<body>
 	<header>
-		<div id="logo" class="margin">
+		<div id="logo">
 		<a href="home" >
-			<img src=" <?php echo base_url("/image/Blijemensen"); ?>">
+			<img src=" <?php echo base_url("/image/logo2"); ?>">
 		</a>
 		</div>
 		<nav>
