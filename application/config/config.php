@@ -17,7 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] ='http://www.students.science.uu.nl/~4291247/webtech2/Joke/wp3/';
+
+$config['base_url'] = 'http://www.students.science.uu.nl/~5500206/WT/P3/';
 
 /*
 |--------------------------------------------------------------------------
@@ -353,10 +354,11 @@ $config['encryption_key'] = '';
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
+
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = '/home/students/5500206/www/WT/P3/sessions/';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

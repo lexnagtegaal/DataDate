@@ -36,6 +36,6 @@
 		</table>
 	</div>
 </div>	
-<div id = "inloggen">
-	inloggen
+<div id="inloggen">
+	<a href="login">Inloggen</a>
 </div>
