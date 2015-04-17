@@ -12,7 +12,7 @@ class Login_model extends CI_Model {
 		
 		//opbouw van de query'
 		$this->db->select('Bijnaam');
-		$this->db->from('Gebruikersprofiel');
+		$this->db->from('Gebruiker');
 		$this->db->where('Email',strtolower($email));
 		$this->db->where('Wachtwoord',$password);
 		$query=$this->db->get();// SELECT 'Bijnaam' from Gebruiker where 'Email'=$email and 'Wachtwoord'=$password;
