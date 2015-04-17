@@ -24,7 +24,6 @@ function rndm(Url){
 	 */
 	var user=[];
 	user.push=Url.split("Profile/")[1];
-	console.log(Url.split("Profile/")[1]);
 	$(".profiles > div").html(""); // id met profiles wordt leeggemaakt!
 	$.ajax({
         url: Url,
@@ -37,7 +36,18 @@ function rndm(Url){
            	 var $data = {} // lokaal elke loop weer opnieuw!
            	 $data['Bijnaam'] = $('Bijnaam',this).text();
            	 $data['Geslacht'] = $('Geslacht',this).text();
-           	 $data['Leeftijd'] = $('Leeftijd',this).text();
+
+           	 // Leeftijd vaststellen
+           	 $Geboortedatum = $('Geboortedatum',this).text(); // Voorbeeld MM-DD-JJJJ
+           	 var Vandaag = new Date; // Voorbeeld 04-17-2015
+           	 var Geboortedag = new Date($Geboortedatum); // Voorbeeld 11-10-1988
+           	 var Verjaardag = new Date(Geboortedatum.replace((Geboortedag.getFullYear()).toString(),(Vandaag.getFullYear()).toString())); // Voorbeeld 11-10-2015
+           	 $data['Leeftijd']=(Vandaag.getFullYear()-Geboortedag.getFullYear()); // Voorbeeld 27
+           	 if(Vandaag.getTime()-Verjaardag.getTime() < 0){ 	// < 0
+           		 $data['Leeftijd']--; // nog geen verjaardag gevierd! Resultaat: 26!
+           	 }
+           	 // Deze code is getest via W3Schools @ http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_gettime
+          
            	 $data['Beschrijving'] = (($('Beschrijving',this).text()).split(".")[0]);
            	 $data['Persoonlijkheidstype'] = $('Persoonlijkheidstype',this).text(); 
            	 $data['Foto'] = "image/" + data['Geslacht'] + ".png"; // bijvoorbeeld image/Man.png
@@ -49,7 +59,6 @@ function rndm(Url){
             })
         }  
     }); 
-	console.log('hallo');
 	return user;
 	
 	/* Onderste deel is voor het testen van het weergeven
