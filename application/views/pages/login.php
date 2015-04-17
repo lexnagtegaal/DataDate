@@ -21,7 +21,7 @@ echo form_open('Login', 'id="login"'); // creert een form die weer terugverwijst
 ?>
 <p class="error_email"></p>
 <?php
-echo form_label('E-mailadres','email_label');
+echo form_label('E-mailadres','email_label','style="label"');
 echo form_input(array(
 			        'type'  => 'email',
 			        'name'  => 'email',
@@ -44,5 +44,5 @@ echo form_input(array(
 
 echo form_submit('','Inloggen'); // Submit knop
 
-echo form_close('</div'); // </form> </div>
+echo form_close('</div>'); // </form> </div>
 ?>
