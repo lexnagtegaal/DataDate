@@ -25,6 +25,7 @@ class Credentials extends CI_Model {
 			 */
 			
 			$username = $this->session->userdata('username');
+
 			if(UserRegex($username)){ 
 				
 				/* controle op geldige input van username,
@@ -34,11 +35,11 @@ class Credentials extends CI_Model {
 				
 				$this->load->database(); // maakt toegang tot database mogelijk.
 				$this->load->library('encryption'); // voor het ontcijferen van de gebruikersnaam
-				$this->db->$select('Bijnaam');
-				$this->db->$from('Gebruiker');
-				$this->db->$where('Bijnaam',$this->encryption->decrypt($this->session->userdata('username'))); // Ontcijferen en vergelijken.
+				$this->db->select('Bijnaam');
+				$this->db->from('Gebruiker');
+				$this->db->where('Bijnaam',$this->session->userdata('username')); // Ontcijferen en vergelijken.
 
-				if(!$this->$db->$get()){ // select 'Bijnaam' from Gebruiker where Bijnaam=$bijnaam;
+				if(!$this->db->get()){ // select 'Bijnaam' from Gebruiker where Bijnaam=$bijnaam;
 					// Gebruiker komt niet voor in ons systeem. invoer is niet betrouwbaar, dus blokeren we de gebruiker!
 					return $this->Blok();
 				}

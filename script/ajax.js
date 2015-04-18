@@ -1,5 +1,6 @@
 //tabel.js laden voor ajax.js!
-
+	 //aanpassen voor basis url binnen dit js bestand
+	basis = "http://www.students.science.uu.nl/~5500206/WT/P3/"
 $(function(){
 		$functie = $(".profiles > div").attr('class');
 		switch($functie){
@@ -22,16 +23,16 @@ function rndm(Url){
 	 * en stuurt deze terug opdat er met de geschiedenis gespeeld kan worden
 	 * ten behoeve van goede backward compatibility.
 	 */
-	var user=[];
-	user.push=Url.split("Profile/")[1];
+	user=[];
+	user.push(Url.split("Profile/")[1]);
 	$(".profiles > div").html(""); // id met profiles wordt leeggemaakt!
 	$.ajax({
-        url: Url,
+        url: "http://www.students.science.uu.nl/~5500206/WT/P3/Profile/random",
         type: 'GET', 
         dataType: 'xml',
         success: function(returnedXMLResponse){
             $('user', returnedXMLResponse).each(function(){
-
+            	console.log('Hallo');
            	 // Data inladen!
            	 var $data = {} // lokaal elke loop weer opnieuw!
            	 $data['Bijnaam'] = $('Bijnaam',this).text();
@@ -39,8 +40,8 @@ function rndm(Url){
            	 $data['Leeftijd'] = Leeftijd($('Geboortedatum',this).text()); // Functie leeftijd in default.js
            	 $data['Beschrijving'] = (($('Beschrijving',this).text()).split(".")[0]);
            	 $data['Persoonlijkheidstype'] = $('Persoonlijkheidstype',this).text(); 
-           	 $data['Foto'] = "image/" + data['Geslacht'] + ".png"; // bijvoorbeeld image/Man.png
-           	 $data['Overzicht']=TRUE; // of er sprake is van een overzicht van (meerdere) profielen.
+           	 $data['Foto'] = "image/" + $data['Geslacht'] + ".png"; // bijvoorbeeld image/Man.png
+           	 $data['Overzicht']="TRUE"; // of er sprake is van een overzicht van (meerdere) profielen.
            	 $data['Merk']=4; // het aantal weer te geven merken.
            	 
            	 $(".profiles > div").append(createTable($data)); // createTable in tabel.js

@@ -1,9 +1,11 @@
 <?php
+header ("Content-Type:application/xml");
 /* Controller voor het tonen van profielpagina
  * Deze is bedoeld met ajaxcalls op te roepen
  * Het resultaat is in xlm output.
  * Dit is handig met de voorgedefinieerde library van code igniter.
  */
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Profile extends CI_Controller{
@@ -27,7 +29,19 @@ class Profile extends CI_Controller{
 	public function random(){ // 'Profile/random'
 		// Genereert 6 willekeurige profielen uit de databases in een xml output.
 		
-		$this->db->select('*');
+		$this->db->select('Bijnaam');
+		$this->db->select('Voornaam');
+		$this->db->select('Tussenvoegsel');
+		$this->db->select('Achternaam');
+		$this->db->select('E-mailadres');
+		$this->db->select('Geslacht');
+		$this->db->select('Beschrijving');
+		$this->db->select('Geslachtsvoorkeur');
+		$this->db->select('Minimumleeftijd');
+		$this->db->select('Maximumleeftijd');
+		$this->db->select('Persoonlijkheidstype');
+		//$this->db->select('Persoonlijkheidsvoorkeur');	!!! wordt niet gevonden :(
+		//$this->db->select('URL Foto'); 					!!! geen spaties in namen, vindt sqllite en xml allebei niet leuk
 		$this->db->from('Gebruikersprofiel');
 		$this->db->order_by(6,'RANDOM');
 		$this->db->limit(6);
