@@ -28,9 +28,9 @@
 		<nav>
 			<ul>
 				<li><a href="home">Home</a></li>
-				<li><a href="about">Over ons</a></li>
+				<li><a href="profilepage">Over ons</a></li>
 				<li><a href="login">Inloggen</a></li>
-				<li><a href="">Zoeken</a></li>
+				<li><a href="register">Zoeken</a></li>
 			</ul>
 		</nav>
 		
