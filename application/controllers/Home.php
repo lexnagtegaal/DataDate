@@ -10,7 +10,11 @@ class Home extends MY_Controller{
 		$this->load->model('credentials');
 	}
 	public function index(){
-		$this->view('home',NULL); // laadt de defaultpagina.
+		if($this->credentials->check_credentials()){
+			$this->view('loginhome',NULL); // laadt de defaultpagina voor gebruikers.
+		}else{
+			$this->view('home',NULL); // laadt de defaultpagina voor anonieme gebruikers
+		}
 	}
 
 }
