@@ -4,11 +4,12 @@ class Login_model extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->database(); // laadt het database systeem.
+		$this->load->library('session');
 	}
 	
 	function login($email,$password){
 		//password is als md5 hash al meegestuurd.
-		$this->load->database(); // laadt het database systeem.
 		
 		//opbouw van de query'
 		$this->db->select('Bijnaam');

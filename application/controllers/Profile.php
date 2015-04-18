@@ -29,17 +29,18 @@ class Profile extends CI_Controller{
 	public function random(){ // 'Profile/random'
 		// Genereert 6 willekeurige profielen uit de databases in een xml output.
 		
-		$this->db->select('Bijnaam');
-		$this->db->select('Voornaam');
-		$this->db->select('Tussenvoegsel');
-		$this->db->select('Achternaam');
-		$this->db->select('E-mailadres');
-		$this->db->select('Geslacht');
-		$this->db->select('Beschrijving');
-		$this->db->select('Geslachtsvoorkeur');
-		$this->db->select('Minimumleeftijd');
-		$this->db->select('Maximumleeftijd');
-		$this->db->select('Persoonlijkheidstype');
+		$this->db->select("*");
+		//$this->db->select('Bijnaam');
+		//$this->db->select('Voornaam');
+		//$this->db->select('Tussenvoegsel');
+		//$this->db->select('Achternaam');
+		//$this->db->select('E-mailadres');
+		//$this->db->select('Geslacht');
+		//$this->db->select('Beschrijving');
+		//$this->db->select('Geslachtsvoorkeur');
+		//$this->db->select('Minimumleeftijd');
+		//$this->db->select('Maximumleeftijd');
+		//$this->db->select('Persoonlijkheidstype');
 		//$this->db->select('Persoonlijkheidsvoorkeur');	!!! wordt niet gevonden :(
 		//$this->db->select('URL Foto'); 					!!! geen spaties in namen, vindt sqllite en xml allebei niet leuk
 		$this->db->from('Gebruikersprofiel');

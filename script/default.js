@@ -39,7 +39,6 @@ window.onpopstate = function(e) {
 function Leeftijd(Geboortedatum){ // DD-MM-JJJJ en DD/MM/JJJJ zijn allebei geldige input!
 	
 	// Leeftijd vaststellen
-	console.log(Geboortedatum);
 	 var Vandaag = new Date; // Voorbeeld 04-17-2015
 	 var Geboortedag = new Date(Geboortedatum); // Voorbeeld 11-10-1988
 	 var Verjaardag = new Date(Geboortedatum.replace((Geboortedag.getFullYear()).toString(),(Vandaag.getFullYear()).toString())); // Voorbeeld 11-10-2015

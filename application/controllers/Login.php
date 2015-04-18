@@ -3,11 +3,16 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller{
+class Login extends MY_Controller{
 
-	public function index(){
-
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('form');
 		$this->load->library('form_validation'); // voor de input validatie van het login formulier
+		$this->load->model('credentials');
+		$this->load->helper('regex');
+	}
+	public function index(){
 
 		// als mensen niet ingelogd zijn, is de home pagina de enige zichtbare pagina met login formulier.
 
@@ -37,9 +42,9 @@ class Login extends CI_Controller{
 		}
 		if($this->credentials->check_credentials()===TRUE)
 		{
-			$this->pages->view('home',NULL); // laadt de defaultpagina.
+			$this->view('home',NULL); // laadt de defaultpagina.
 		}else{
-			$this->pages->view('login',NULL);
+			$this->view('login',NULL);
 		}
 	}
 

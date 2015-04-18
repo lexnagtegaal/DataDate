@@ -3,11 +3,14 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller{
+class Home extends MY_Controller{
 	
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('credentials');
+	}
 	public function index(){
-		
-		$this->pages->view('home',NULL); // laadt de defaultpagina.
+		$this->view('home',NULL); // laadt de defaultpagina.
 	}
 
 }

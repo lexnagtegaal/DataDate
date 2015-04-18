@@ -16,7 +16,7 @@
 	<header>
 		<div id="logo">
 		<a href="home" >
-			<img src=" <?php echo base_url("/image/logo2"); ?>">
+			<img src="<?php echo base_url("/image/logo2"); ?>">
 		</a>
 		</div>
 		<nav>

@@ -3,13 +3,18 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Register extends CI_Controller{
-
+class Register extends MY_Controller{
+	public function __construct(){
+		parent::__construct();
+		$this->load->database();
+		$this->load->helper('form');
+		$this->load->library('form_validation'); // voor de input validatie van het login formulier
+		$this->load->helper('regex');
+		$this->load->helper('merken');
+	}
 	public function index(){
 
-		$this->load->database();
-		$this->load->library('form_validation'); // voor de input validatie van het login formulier
-
+		
 		//validatieregels voor het registreerformulier
 		$this->form_validation->set_rules('Nickname', 'Bijnaam', 'trim|required|min_length[4]|alpha_dash|callback_username_check');
 		$this->form_validation->set_rules('email', 'E-mailadres', 'trim|required|callback_email_check');
@@ -28,7 +33,7 @@ class Register extends CI_Controller{
 		
 
 		if($this->form_validation->run()==FALSE){ // als er geen correcte validatie heeft plaatsgevonden.
-			$this->pages->view('register',NULL);
+			$this->view('register',NULL);
 		}else{
 			// Het formulier voldoet aan alle eisen, dus de account kan aangemaakt worden!
 			$gebruiker = array(
@@ -51,7 +56,7 @@ class Register extends CI_Controller{
 			);
 			$this->db->insert('Gebruiker',$gebruiker);
 			$this->db->insert('Gebruikersprofiel', $profiel);
-			//$this->pages->view('registratie',NULL);
+			//$this->view('registratie',NULL);
 		}
 	}
 	

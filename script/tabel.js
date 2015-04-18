@@ -1,12 +1,9 @@
 function createTable($data){
-	
-	 //aanpassen voor basis url binnen dit js bestand
-	url = "http://www.students.science.uu.nl/~5500206/WT/P3/"
 	var $Tabel=document.createElement('table'); // geeft <tabel></tabel>
 	if($data['Foto']!==undefined){
 		$Foto = $(document.createElement("img"))
 					.attr({
-							src: +url+$data['Foto'],
+							src: $data['Foto'],
 							alt: $data['Bijnaam']
 						});
 		$TR=$(document.createElement('tr')).attr('id','profielfoto'); // geeft <tr id='profielfoto'></tr>
