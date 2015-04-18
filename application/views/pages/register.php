@@ -196,6 +196,5 @@ echo form_multiselect("merken[]",merken(),set_value('merken[]'),"id='merken' req
 
 echo form_submit('','Registeren');
 
-//formulier afsluiten!
 echo form_close();
 ?>

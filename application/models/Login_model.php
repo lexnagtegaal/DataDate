@@ -20,7 +20,7 @@ class Login_model extends CI_Model {
 			$row = $query->row();
 			$this->session->set_userdata(array(
 												'login'		=>	TRUE,
-												'username'	=>	$this->encryption->encrypt($row->Bijnaam)
+												'username'	=>	$row->Bijnaam
 												)); // Wachtwoord slaan we NIET op.
 		}else{
 			$this->session->set_userdata('errors','De opgegeven gebruikersnaam en wachtwoord komen niet voor in ons systeem.');
