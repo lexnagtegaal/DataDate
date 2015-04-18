@@ -102,16 +102,22 @@ $vrouw=array(
 		'id'	=> 'Vrouw',
 		'value' => 'Vrouw'
 );
-if(set_value("gender")=="Vrouw"){
-		array_push($vrouw,array(
-					'checked'=>TRUE)
-					);
+if(set_value("Gender")=="Vrouw"){
+	$vrouw=array(
+		'name'  => 'Gender',
+		'id'	=> 'Vrouw',
+		'value' => 'Vrouw',
+		'checked' => TRUE
+	);
 	}
-if(set_value("gender")=="Man"){
-		array_push($man,array(
-		'checked'=>TRUE)
-		);
-	}
+if(set_value("Gender")=="Man"){
+	$man=array(
+		'name'  => 'Gender',
+		'id'	=> 'Man',
+		'value' => 'Man',
+		'checked' => TRUE
+	);
+}
 	
 echo form_label('Man','Man');
 echo form_radio($man);
@@ -122,9 +128,9 @@ echo form_radio($vrouw);
 //Geboortedatum met behulp van een datepicker uit jqeury UI
 echo form_label("Geboortedatum");
 echo form_input(array(
-		'type'  => 'text',
+		'type'  => 'date',
 		'name'  => 'Geboortedatum',
-		'id'	=> 'datepicker',
+		'id'	=> 'Geboortedatum',
 		'placeholder' => 'MM/DD/JJJJ',
 		'value' => set_value('Geboortedatum'),
 		'required' => TRUE
@@ -147,23 +153,31 @@ $male=array(
 		'id'	=> 'Male',
 		'value'	=> "Man"
 		);
-if(set_value('Voorkeur[0]')=="Man"){
-	array_push($male,array(
-					'checked'=>TRUE)
-	);
-}
 $female=array(
 		'name'	=> 'Voorkeur[]',
 		'id'	=> 'Female',
 		'value'	=> "Vrouw"
 		);
+if(set_value('Voorkeur[0]')=="Man"|set_value('Voorkeur[1]')=="Man"){
+	$male=array(
+			'name'	=> 'Voorkeur[]',
+			'id'	=> 'Male',
+			'value'	=> "Man",
+			'checked' => TRUE
+	);
+}
+if(set_value('Voorkeur[0]')=="Vrouw"|set_value('Voorkeur[1]')=="Vrouw"){
+	$female=array(
+			'name'	=> 'Voorkeur[]',
+			'id'	=> 'Female',
+			'value'	=> "Vrouw",
+			'checked' => TRUE
+	);
+}
+
 echo form_label("mannen","Male");
 echo form_checkbox($male);
-$checked="";
-if(set_value('Voorkeur[1]')=="Vrouw"){
-	$checked="checked";
-}
-echo form_label("vrouwen","Female",$checked);
+echo form_label("vrouwen","Female");
 echo form_checkbox($female);
 
 //Minimum en maximleeftijd

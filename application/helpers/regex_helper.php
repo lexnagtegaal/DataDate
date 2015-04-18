@@ -26,7 +26,7 @@ function UserRegex($input,$getregex=false)
 function NameRegex($input,$getregex=false)
 {
 	//voor geldige username van minimaal 4 karakters.
-	$regex="^[A-Za-z]*$";
+	$regex="^[A-Za-z -]*$";
 	$error="Naam kan alleen uit letters bestaan";
 	return Validate($input,$regex,$getregex,$error);
 }

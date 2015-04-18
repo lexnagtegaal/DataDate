@@ -11,9 +11,8 @@ class Register extends CI_Controller{
 
 		//validatieregels voor het registreerformulier
 		$this->form_validation->set_rules('Nickname', 'Bijnaam', 'trim|required|min_length[4]|alpha_dash');
-		$this->form_validation->set_rules('FirstName','Voornaam', 'trim|required|alpha');
-		$this->form_validation->set_rules('MiddleName','Tussenvoegsel', 'trim|alpha');
-		$this->form_validation->set_rules('LastName','Achternaam', 'trim|required|alpha');
+		$this->form_validation->set_rules('FirstName','Voornaam', 'trim|required');
+		$this->form_validation->set_rules('LastName','Achternaam', 'trim|required');
 		$this->form_validation->set_rules('password','Wachtwoord','trim|required|alpha_numeric');
 		$this->form_validation->set_rules('password_confirm','Wachtwoord','trim|matches[password]');
 		$this->form_validation->set_rules('Geboortedatum','Geboortedatum','required');
@@ -35,9 +34,9 @@ class Register extends CI_Controller{
 	
 	// DEZE FUNCTIE IS GETEST :) OP 18-04-2015 @ 09.22
 	public function leeftijd_check($date){
-		// Controleren of iemand 18 jaar oud is. Standaard formaat is afgedwongen tot MM/DD/YYYY
-		$exploded=explode("/",$date);
-		$geboortejaar=$exploded[2];
+		// Controleren of iemand 18 jaar oud is. Standaard formaat is afgedwongen tot MM-DD-YYYY
+		$exploded=explode("-",$date);
+		$geboortejaar=$exploded[0];
 		$Verjaardag = strtotime(str_replace(
 								$geboortejaar, 	// bijvoorbeeld 1988
 								date('Y'),				// bijvoorbeeld 2015
