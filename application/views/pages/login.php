@@ -19,21 +19,21 @@ echo form_open('Login', 'id="login"'); // creert een form die weer terugverwijst
 ?>
 <p class="error_email"></p>
 <?php
-echo form_label('E-mailadres','email');
+echo form_label('E-mailadres');
 echo form_input(array(
 			        'type'  => 'email',
 			        'name'  => 'email',
 					'id'	=> 'email',
 			        'value' => set_value('email'),
-					'pattern' => EmailRegex('',TRUE),
-					'title' => 'Het door u ingevulde e-mailadres is niet geldig!'
+					'pattern' => EmailRegex('',TRUE)[0],
+					'title' => EmailRegex('',TRUE)[1]
 					),$required);
 
 //Label en Input field voor het wachtword
 ?>
 <p class="error_password"></p>
 <?php
-echo form_label('Wachtwoord','password');
+echo form_label('Wachtwoord');
 echo form_input(array(
 					'type'  => 'password',
 					'name'  => 'password',

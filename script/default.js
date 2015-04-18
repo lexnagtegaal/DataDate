@@ -36,3 +36,16 @@ window.onpopstate = function(e) {
 		}
 	}
 }
+function Leeftijd(Geboortedatum){ // DD-MM-JJJJ en DD/MM/JJJJ zijn allebei geldige input!
+	
+	// Leeftijd vaststellen
+	 var Vandaag = new Date; // Voorbeeld 04-17-2015
+	 var Geboortedag = new Date(Geboortedatum); // Voorbeeld 11-10-1988
+	 var Verjaardag = new Date(Geboortedatum.replace((Geboortedag.getFullYear()).toString(),(Vandaag.getFullYear()).toString())); // Voorbeeld 11-10-2015
+	 var Leeftijd=(Vandaag.getFullYear()-Geboortedag.getFullYear()); // Voorbeeld 27
+	 if(Vandaag.getTime()-Verjaardag.getTime() < 0){ 	// < 0
+		 Leeftijd--; // nog geen verjaardag gevierd! Resultaat: 26!
+	 }
+	 return Leeftijd;
+	 // Deze code is getest via W3Schools @ http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_gettime
+}
