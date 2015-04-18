@@ -11,13 +11,19 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 		margin-left: 100px;
 		margin-right: 100px;
 }
-/* homepage */
+body
+{
+	background-color: #FFFDE4;
+}
+
+/* div styling */
 
 #content
 {
 	position: static;
 	padding: 1px 0px;
 	background-color: #FFFFFF;
+	padding: 20px;
 }
 #inloggen
 {
@@ -26,7 +32,24 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 	display:inline-block;
 	float:right;
 	margin: 50px;
-	margin-top: 10px;
+	margin-top: 1px;
 	background-color: #706A79;
 }
 
+/* title */
+
+.title
+{
+	font-size: 30px;
+	margin-bottom: 15px;	
+}
+ .title a
+ {
+ 	text-decoration: none;
+ 	color:#000000;
+ }
+ .title a:hover
+ {
+ 	text-decoration: underline;
+ 	color: #808080; 
+ }

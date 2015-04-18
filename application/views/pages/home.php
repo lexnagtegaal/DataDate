@@ -1,4 +1,4 @@
-<h1><a href="home" class="title"">Home</a></h1>
+<h1 class="title"><a href="home">Home</a></h1>
 
 <div class = "profiles">
 	<p> Profielen worden geladen</p>
