@@ -25,17 +25,26 @@ class Credentials extends CI_Model {
 			 */
 			
 			$username = $this->session->userdata('username');
-			
-						
-			$this->load->database(); // maakt toegang tot database mogelijk.
-			$this->load->library('encryption'); // voor het ontcijferen van de gebruikersnaam
-			$this->db->$select('Bijnaam');
-			$this->db->$from('Gebruiker');
-			$this->db->$where('Bijnaam',$this->encryption->decrypt($this->session->userdata('username'))); // Ontcijferen en vergelijken.
+			if(UserRegex($username)){ 
+				
+				/* controle op geldige input van username,
+				 * deze controle is er namelijk voor het geval iemand sessiedata aan wil passen. 
+				 * Dus het is een onbetrouwbare input!
+				 */ 
+				
+				$this->load->database(); // maakt toegang tot database mogelijk.
+				$this->load->library('encryption'); // voor het ontcijferen van de gebruikersnaam
+				$this->db->$select('Bijnaam');
+				$this->db->$from('Gebruiker');
+				$this->db->$where('Bijnaam',$this->encryption->decrypt($this->session->userdata('username'))); // Ontcijferen en vergelijken.
 
-			if(!$this->$db->$get()){ // select 'Bijnaam' from Gebruiker where Bijnaam=$bijnaam;
-				$this->Blok();
-				return FALSE;
+				if(!$this->$db->$get()){ // select 'Bijnaam' from Gebruiker where Bijnaam=$bijnaam;
+					// Gebruiker komt niet voor in ons systeem. invoer is niet betrouwbaar, dus blokeren we de gebruiker!
+					return $this->Blok();
+				}
+			}else{
+				//Username klopt niet, invoer is niet betrouwbaar dus blokeren we de gebruiker!
+				return $this->Blok();
 			}
 		}
 
@@ -49,13 +58,14 @@ class Credentials extends CI_Model {
 	}
 	
 	function Blok(){
+		// Deze functie creeert de Blok op de gebruiker.
 		$this->session->set_tempdata('geblokt','',1200); // Creeert de Block!
 		$this->session->unset_userdata('username'); // Laten we maar geen gevoelige informatie rondslingeren als we de gebruiker uit de online community willen houden.
 		$this->session->unset_userdata('login'); // Gebruiker is ingelogd.
-		
+		return FALSE;
 		//Sessie blijft wel bestaan! We hebben immers de tempdata('geblokt') openstaan.
 		
-		/* De gebruiker is niet in staat om uit te loggen
+		/* De gebruiker wordt geforceerd uitgelogd.
 		 * (dit omdat de check_credentials false oplevert)
 		 * Hij/Zij kan ook niet opnieuw inloggen met een blok.
 		 * De hacker is de komende 20 minuten uitgesloten van de community.
