@@ -1,7 +1,7 @@
 function createTable($data){
 	
 	 //aanpassen voor basis url binnen dit js bestand
-	url = "http://www.students.science.uu.nl/~5500206/WT/P3/"
+	url = "www.students.science.uu.nl/~4291247/webtech2/WP3/"
 	var $Tabel=document.createElement('table'); // geeft <tabel></tabel>
 	if($data['Foto']!==undefined){
 		$Foto = $(document.createElement("img"))
