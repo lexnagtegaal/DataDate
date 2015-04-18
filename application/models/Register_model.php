@@ -29,7 +29,7 @@ class Register_model extends CI_Model {
 		//Alleen Persoonlijkheidstype en Persoonlijkheidsvoorkeur ontbreken nog in dit stadium.
 		$this->db->insert('Gebruiker',$gebruiker);
 		$this->db->insert('Gebruikersprofiel', $profiel);
-		$this->session->tempdata('');
+		$this->session->tempdata('newuser',$data['Bijnaam']);
 	}
 	
 }

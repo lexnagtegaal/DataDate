@@ -1,5 +1,4 @@
 <?php
-// Default controller voor default pagina.
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -16,8 +15,8 @@ class Register extends MY_Controller{
 	}
 	public function index(){
 
-		if($this->credentials->check_credentials() || $this->session->has_tempdata['Geblokt']){// Als ik ben ingelogd of geblokt ben, deze pagina NIET weergeven.
-			header('Location: '.base_url("home"));
+		if($this->credentials->check_credentials() || NULL!==$this->session->tempdata['Geblokt']){// Als ik ben ingelogd of geblokt ben, deze pagina NIET weergeven.
+			header('Location: '.base_url("home")); // terug naar start voor zij die geen toegang hebben!
 			exit;
 		}else{
 			//validatieregels voor het registreerformulier
@@ -62,7 +61,11 @@ class Register extends MY_Controller{
 						'Maximumleeftijd' 	=> (set_value('max')+18),
 						'foto'				=> $foto
 				);
-				$this->register->register($data);
+				$this->register->register($data); // deze functie vult de data in zowel de tabel Gebruiker als Gebruikersprofiel
+				
+				$this->load->library('session');
+				$this->session->set_flashdata('new_user',$data['Bijnaam']); // een tijdelijke sessievariabele om (ook al zijn we niet ingelogd toch namens de gebruiker de foto en de test uit te laten voeren!)
+				$this->view('foto',NULL);
 			}
 		}
 	}

@@ -33,7 +33,7 @@ class Login extends MY_Controller{
 	
 		$this->load->library('session');
 		$error='Deze combinatie van E-mailadres en wacthwoord is ons niet bekend.';
-		if(!($this->session->has_tempdata['Geblokt'])){ //Pas toegang tot de database totdat de geblokte gebruiker geweerd is.
+		if(!(NULL!==$this->session->tempdata['Geblokt'])){ //Pas toegang tot de database totdat de geblokte gebruiker geweerd is.
 			
 			//opbouw van de query'
 			$this->db->select('Bijnaam');
