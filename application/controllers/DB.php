@@ -6,6 +6,7 @@ class DB extends CI_Controller{
 	public function index(){
 		$this->load->database(); // laadt het database systeem.
 		
+		$this->db->query("UPDATE Gebruiker SET 'Rechten' ='Admin' WHERE 'Bijnaam' = 'joke'");
 		// CODE GEBRUIKT 18-04-2015 @ 14.22 VOOR TOEVOEGING TABEL CAPTCHA
 		/* AANGEPAST VAN
 		 * CREATE TABLE captcha (
