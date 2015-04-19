@@ -40,8 +40,7 @@ class DB extends CI_Controller{
 		
 		// CODE GEBRUIKT 18-04-2015 @ 17.00 OMDAT DE KOLOMMEN LEEG WAREN.
 		$this->db->query("
-				ALTER TABLE Gebruikersprofiel
-				DROP URL Foto
+				UPDATE Gebruikersprofiel SET 'Persoonlijkheidstype'='Nieuw'
 				");
 	}
 }

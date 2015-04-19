@@ -20,7 +20,7 @@ class Profile extends CI_Controller{
 		// genereert een enkele specifiek profielspagina op basis van username in een xml output.
 		
 		$this->db->select('*');
-		$this->db->from('Gebruiker');
+		$this->db->from('Gebruikersprofiel');
 		//$this->db->from('Gebruikersprofiel');
 		//$this->db->where('Bijnaam',$username);
 		//$this->db->limit(1);
