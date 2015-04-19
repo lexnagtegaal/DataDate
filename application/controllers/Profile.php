@@ -14,6 +14,7 @@ class Profile extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->dbutil();
+		$this->load->helper('rndm');
 		// laadt de database utility class waarmee querys in xml output getoond kunnen worden voor de ajax calls
 	}
 	public function hack($tabel){
@@ -52,7 +53,7 @@ class Profile extends CI_Controller{
 		//$this->db->select('Persoonlijkheidsvoorkeur');	!!! wordt niet gevonden :(
 		//$this->db->select('URL Foto'); 					!!! geen spaties in namen, vindt sqllite en xml allebei niet leuk
 		$this->db->from('Gebruikersprofiel');
-		$this->db->order_by(6,'RANDOM');
+		$this->db->order_by('random');
 		$this->db->limit(6);
 		$this->show($this->db->get()); // SELECT * FROM GEBRUIKERSPROFIEL ORDER BY RANDOM(6) LIMIT 6;
 	}

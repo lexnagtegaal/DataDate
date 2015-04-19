@@ -14,10 +14,8 @@
 {
 	display: inline-block;
 	margin: 10px;
-	width: 50px;
+	width: 100px;
 }
-.normalLabel{width: 200px;}
-
 
 /* inloggen */
 
@@ -30,6 +28,7 @@
 	margin: auto;
 	marin-bottom: 3px;
 }
+
 
 #inloggen div label
 {
@@ -56,17 +55,20 @@
 	width: 250px;
 	display: inline-block;
 	background-color: #B0B0B0;
+	float:left; 
 }
-.random div:child(even){ float:clear;}
+
+.random div:nth-child(even){ clear:right;}
 
 .random th
 {
 	width: 150px;
 	padding: 5px;
+	vertical-align:top;
 }
 
 #profielfoto img
 {
-	width: 50px;
-	heigth: 50px;
+	width: 100px;
+	heigth: 150px;
 }
