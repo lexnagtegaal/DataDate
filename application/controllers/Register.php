@@ -13,6 +13,7 @@ class Register extends MY_Controller{
 		$this->load->helper('regex');
 		$this->load->helper('merken');
 		$this->load->helper('rndm');
+		$this->load->helper('matching');
 	}
 	public function index(){
 
@@ -61,7 +62,8 @@ class Register extends MY_Controller{
 						'Minimumleeftijd'	=> (set_value('min')+18),
 						'Maximumleeftijd' 	=> (set_value('max')+18),
 						'Persoonlijkheidstype'=> ("Nieuw"),
-						'Foto'				=> $foto
+						'Foto'				=> $foto,
+						'Merken'			=>array(set_value('merken[]'))
 				);
 				
 
@@ -118,20 +120,9 @@ class Register extends MY_Controller{
 	
 	// DEZE FUNCTIE IS GETEST :) OP 18-04-2015 @ 09.22
 	public function leeftijd_check($date){
-		// Controleren of iemand 18 jaar oud is. Standaard formaat is afgedwongen tot MM-DD-YYYY
-		$exploded=explode("-",$date);
-		$geboortejaar=$exploded[0];
-		$Verjaardag = strtotime(str_replace(
-								$geboortejaar, 	// bijvoorbeeld 1988
-								date('Y'),				// bijvoorbeeld 2015
-								$date					// bijvoorbeeld 11/10/1988 -> 11/10/2015
-								));
-		$Leeftijd = date('Y')-$geboortejaar;		// bijvoorbeeld 2015-1988 -> 27
-		
-		if(strtotime("now")-$Verjaardag < 0){
-			$Leeftijd--;	// nog geen verjaardag gehad// Resultaat 26!
-		}
-		
+
+		$leeftijd = $this->matching->leeftijd($date);
+
 		// Leeftijd bekend, nu de controle
 		if($Leeftijd < 18){ // Te jong, dus return FALSE
 			$this->form_validation->set_message('leeftijd_check', 'Je moet minstens 18 jaar oud zijn voor deze website.');
