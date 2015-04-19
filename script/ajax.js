@@ -26,7 +26,7 @@ function rndm(Url){
 	user.push(Url.split("Profile/")[1]);
 	$(".profiles > div").html(""); // id met profiles wordt leeggemaakt!
 	$.ajax({
-        url: "http://www.students.science.uu.nl/~5500206/WT/P3/Profile/random",
+        url: Url,
         type: 'GET', 
         dataType: 'xml',
         success: function(returnedXMLResponse){
@@ -41,8 +41,9 @@ function rndm(Url){
            	 $data['Foto'] = "image/" + $data['Geslacht'] + ".png"; // bijvoorbeeld image/Man.png
            	 $data['Overzicht']="TRUE"; // of er sprake is van een overzicht van (meerdere) profielen.
            	 $data['Merk']=4; // het aantal weer te geven merken.
-           	 
-           	 $(".profiles > div").append(createTable($data)); // createTable in tabel.js
+           	 var div = document.createElement("div");
+           	 $(div).append(createTable($data));
+           	 $(".profiles > div").append(div); // createTable in tabel.js
            	 user.push($data['Bijnaam']); // voegt de recente gebruikersnaam toe aan de array.
             })
         }  

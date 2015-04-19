@@ -5,19 +5,21 @@
 {
 	width: auto;
 	height: auto;
-	margin: 10px;
 	float: left;
-	background-color: #E2B8AE;
 }
 
-.random table
+.random div
 {
-	border: 1px solid black;
+	margin: 10px;
+	height: 25%;
+	width: 45%;
+	display:inline-block;
+	background-color: #B0B0B0;
 }
 
-.random table th
+.random th
 {
-	padding: 10px;
+	width: 
 }
 
 #profielfoto img
