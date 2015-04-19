@@ -5,6 +5,9 @@ class Credentials extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->helper('regex');
+		$this->load->library('session');
+		$this->load->database(); // maakt toegang tot database mogelijk.
 	}
 
 	function geblokt(){
@@ -32,9 +35,6 @@ class Credentials extends CI_Model {
 				 * deze controle is er namelijk voor het geval iemand sessiedata aan wil passen. 
 				 * Dus het is een onbetrouwbare input!
 				 */ 
-				
-				$this->load->database(); // maakt toegang tot database mogelijk.
-				$this->load->library('encryption'); // voor het ontcijferen van de gebruikersnaam
 				$this->db->select('Bijnaam');
 				$this->db->from('Gebruiker');
 				$this->db->where('Bijnaam',$this->session->userdata('username')); // Ontcijferen en vergelijken.

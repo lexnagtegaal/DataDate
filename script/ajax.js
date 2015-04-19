@@ -1,6 +1,5 @@
 //tabel.js laden voor ajax.js!
-	 //aanpassen voor basis url binnen dit js bestand
-	basis = "http://www.students.science.uu.nl/~4291247/webtech2/WP3/"
+
 $(function(){
 		$functie = $(".profiles > div").attr('class');
 		switch($functie){
@@ -32,7 +31,6 @@ function rndm(Url){
         dataType: 'xml',
         success: function(returnedXMLResponse){
             $('user', returnedXMLResponse).each(function(){
-            	console.log('Hallo');
            	 // Data inladen!
            	 var $data = {} // lokaal elke loop weer opnieuw!
            	 $data['Bijnaam'] = $('Bijnaam',this).text();

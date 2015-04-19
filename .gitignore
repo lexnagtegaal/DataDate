@@ -17,3 +17,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 application/config/config.php
 application/views/pages/home.php
 application/views/templates/header.php
+script/tabel.js
+script/tabel.js
