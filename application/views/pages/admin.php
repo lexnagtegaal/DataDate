@@ -23,7 +23,7 @@ $D4=array(
 		'value' => 'D4',
 		'required'=>TRUE
 );
-switch ($Afstandsmaat){
+switch ($Afstandmaat){
 	case "D2":
 		$D2=array(
 				'name'  => 'D',
@@ -81,9 +81,9 @@ echo form_input(array(
 		'type'	=>	'range',
 		'name'	=>	'X',
 		'id'	=>	'Xfactor',
-		'value' =>	$Xfactor,
+		'value' =>	$XFactor*10,
 		'min'	=>	'0',
-		'max'	=>	'1',
+		'max'	=>	'10',
 		'required'	=>	TRUE
 ));
 ?>
@@ -92,16 +92,17 @@ echo form_input(array(
 echo heading("Alfa-factor",2);
 echo form_label("Sterkte waarmee nieuwe likes de persoonlijkheidsvoorkeur verandert");
 echo form_input(array(
-		'type'	=>	'Alfa',
+		'type'	=>	'range',
 		'name'	=>	'A',
 		'id'	=>	'Alfa',
-		'value' =>	$Xfactor,
+		'value' =>	$Alfa*10,
 		'min'	=>	'0',
-		'max'	=>	'1',
+		'max'	=>	'10',
 		'required'	=>	TRUE
 ));
 ?>
 <p>1 sluit verandering uit, 0 zorgt voor totale verandering</p>
-<?php 
+<?php
+echo form_submit('',"Aanpassen");
 echo form_close();
 ?>

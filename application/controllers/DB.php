@@ -39,8 +39,10 @@ class DB extends CI_Controller{
 				*/
 		
 		// CODE GEBRUIKT 18-04-2015 @ 17.00 OMDAT DE KOLOMMEN LEEG WAREN.
-		$this->db->query("
-				UPDATE Gebruikersprofiel SET 'Persoonlijkheidstype'='Nieuw'
-				");
+		$this->db->insert("Persoonlijkheid",array(
+											"Alfa" =>'0.5',
+											"Afstandmaat" =>'D2',
+											"Xfactor" => '0.5'
+		));
 	}
 }
