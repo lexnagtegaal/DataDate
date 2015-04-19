@@ -61,7 +61,8 @@ class Register extends MY_Controller{
 						'Minimumleeftijd'	=> (set_value('min')+18),
 						'Maximumleeftijd' 	=> (set_value('max')+18),
 						'Persoonlijkheidstype'=> ("Nieuw"),
-						'Foto'				=> $foto
+						'Foto'				=> $foto,
+						'Merken'			=>array(set_value('merken[]'))
 				);
 				
 

@@ -8,9 +8,9 @@ class Register_model extends CI_Model {
 	}
 	public function register($data){
 		$gebruiker = array(
-				'Bijnaam' 		=> $data['Bijnaam'],
-				'Email'			=> $data['Email'],
-				'Wachtwoord'	=> $data['Wachtwoord']
+				'Bijnaam' 			=> $data['Bijnaam'],
+				'Email'				=> $data['Email'],
+				'Wachtwoord'		=> $data['Wachtwoord']
 		);
 		$profiel = array(
 				'Bijnaam' 			=> $data['Bijnaam'],
@@ -27,10 +27,17 @@ class Register_model extends CI_Model {
 				'Persoonlijkheidstype' => $data['Persoonlijkheidstype'],
 				'Foto'				=> $data['Foto']
 		);
+		for($i=0;$i<count($data['Merken'][0]);$i++){
+			$merken= array(
+				'Bijnaam'			=> $data['Bijnaam'],
+				'Merk'				=> $data['Merken'][0][$i]
+				);
+			$this->db->insert('Merk',$merken);
+		}
 		//Alleen Persoonlijkheidstype en Persoonlijkheidsvoorkeur ontbreken nog in dit stadium.
 		$this->db->insert('Gebruiker',$gebruiker);
 		$this->db->insert('Gebruikersprofiel', $profiel);
-		$this->session->tempdata('newuser',$data['Bijnaam']);
+		$this->session->tempdata('new_user',$data['Bijnaam']);
 	}
 	
 }
