@@ -27,6 +27,7 @@
 	margin: auto;
 }
 
+
 #inloggen div label
 {
 	display: inline-block;
@@ -36,7 +37,7 @@
 
 #submit{ padding-left:150px;}
 
-/* profielen op homepage */ 
+/* profielen*/ 
 
 .random
 {
@@ -56,14 +57,13 @@
 	float:left; 
 }
 
-.random div:nth-child(odd){ clear:left;}
+.random div:nth-child(even){ clear:right;}
 
 .random th
 {
 	width: 150px;
 	padding: 5px;
 	vertical-align:top;
-	text-align: left;
 }
 
 #profielfoto img
@@ -110,3 +110,4 @@
 	margin: 10px;
 	width: auto;
 }
+

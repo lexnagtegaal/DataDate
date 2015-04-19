@@ -12,7 +12,7 @@ echo form_open('Register', 'id="register"');
 <div>
 <?php 
 //Bijnaam
-echo form_label('Bijnaam');
+echo form_label('Bijnaam', "'class=normalLabel'");
 echo form_input(array(
 		'type'  => 'text',
 		'name'  => 'Nickname',
