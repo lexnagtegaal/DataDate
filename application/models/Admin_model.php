@@ -6,7 +6,7 @@ class Admin_model extends CI_Model {
 		$this->load->model('credentials');
 	}
 	public function check_admin(){
-		if($this->check_credentials()){
+		if($this->credentials->check_credentials()){
 			$this->load->database();
 			$this->load->session();
 			$this->db->select('Rechten');

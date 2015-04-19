@@ -8,12 +8,13 @@ class Admin extends MY_Controller{
 		$this->load->model('admin_model','admin');
 		$this->load->library('form_validation');
 		$this->load->model('matching_model','matching');
-		$this->load->library('html');
+		$this->load->helper('html');
 	}
 	public function index(){
 		if(!$this->admin->check_admin()){
 			redirect("Home");
 		}else{
+			
 			//form_validation regels hier
 			
 			
