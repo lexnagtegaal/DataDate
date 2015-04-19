@@ -26,9 +26,9 @@
 		<nav>
 			<ul>
 				<li><a href="home">Home</a></li>
-				<li><a href="profilepage">Over ons</a></li>
+				<li><a href="profilepage">no go</a></li>
 				<li><a href="login">Inloggen</a></li>
-				<li><a href="register">Zoeken</a></li>
+				<li><a href="register">registeren</a></li>
 			</ul>
 		</nav>
 		
