@@ -24,6 +24,10 @@ body
 	position: static;
 	padding: 1px 0px;
 }
+header img
+{
+	float:right;
+}
 .profiles
 {
 	position: static;
@@ -37,6 +41,31 @@ body
 	padding: 10px;
 }
 
+#inloggen
+{
+	position: static;
+	width: 50%;
+	min-height: 150px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding-top: 20px;
+}
+#registeren
+{
+	position: static;
+	width: 50%;
+	min-height: 250px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+	padding-top: 20px;
+}
 /* title */
 
 .title

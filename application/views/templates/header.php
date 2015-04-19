@@ -25,10 +25,10 @@
 		</div>
 		<nav>
 			<ul>
-				<li><a href="home">Home</a></li>
-				<li><a href="profilepage">no go</a></li>
-				<li><a href="login">Inloggen</a></li>
-				<li><a href="register">registeren</a></li>
+				<li><a href="<?php echo base_url("home");?>">Home</a></li>
+				<li><a href="<?php echo base_url("profilepage");?>">no go</a></li>
+				<li><a href="<?php echo base_url("login");?>">Inloggen</a></li>
+				<li><a href="<?php echo base_url("register");?>">Registeren</a></li>
 			</ul>
 		</nav>
 		

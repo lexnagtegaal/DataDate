@@ -1,3 +1,44 @@
+/* Registeren */
+
+#registeren div
+{
+	position: static;
+	width: 80%;
+	height: auto;
+	display:block;
+	margin: auto;
+	marin-bottom: 3px;
+}
+
+#registeren div label
+{
+	display: inline-block;
+	margin: 10px;
+	width: 50px;
+}
+.normalLabel{width: 200px;}
+
+
+/* inloggen */
+
+#inloggen div
+{
+	position: static;
+	width: 50%;
+	height: auto;
+	display:block;
+	margin: auto;
+	marin-bottom: 3px;
+}
+
+#inloggen div label
+{
+	display: inline-block;
+	margin: 10px;
+	width: 100px;
+}
+
+#submit{ padding-left:150px;}
 
 /* profielen*/ 
 
@@ -11,24 +52,21 @@
 .random div
 {
 	margin: 10px;
-	height: 25%;
-	width: 45%;
-	display:inline-block;
+	height: 300px;
+	width: 250px;
+	display: inline-block;
 	background-color: #B0B0B0;
 }
+.random div:child(even){ float:clear;}
 
 .random th
 {
-	width: 
+	width: 150px;
+	padding: 5px;
 }
 
 #profielfoto img
 {
 	width: 50px;
 	heigth: 50px;
-}
-
-.tekst th
-{
-	width: 10%;
 }
