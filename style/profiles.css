@@ -29,7 +29,6 @@
 	marin-bottom: 3px;
 }
 
-
 #inloggen div label
 {
 	display: inline-block;
@@ -39,7 +38,7 @@
 
 #submit{ padding-left:150px;}
 
-/* profielen*/ 
+/* profielen op homepage */ 
 
 .random
 {
@@ -58,17 +57,58 @@
 	float:left; 
 }
 
-.random div:nth-child(even){ clear:right;}
+.random div:nth-child(odd){ clear:left;}
 
 .random th
 {
 	width: 150px;
 	padding: 5px;
 	vertical-align:top;
+	text-align: left;
 }
 
 #profielfoto img
 {
 	width: 100px;
 	heigth: 150px;
+}
+/* foto.php */
+#fotopagina img
+{
+	heigth: 100px;
+	width: 100px;
+}
+#fotopagina label
+{
+	display: inline-block;
+	margin: 10px;
+	width: auto;
+}
+
+/* test */
+
+#test div
+{
+	position: static;
+	width: 80%;
+	height: auto;
+	display:block;
+	margin: auto;
+	marin-bottom: 3px;
+}
+
+#test div div
+{
+	position: static;
+	width: 100%;
+	height: auto;
+	display:block;
+	margin: auto;
+}
+#test label
+{
+	display: inline-block;
+	clear:right;
+	margin: 10px;
+	width: auto;
 }

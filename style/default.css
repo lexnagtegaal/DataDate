@@ -16,17 +16,20 @@ body
 {
 	background-color: #FFFDE4;
 }
-
+#vrolijk
+{
+	float:right;
+	margin:10px;
+	margin-right:100px;
+	height: 400px;
+	width: 550px;
+}
 /* div styling */
 
 #content
 {
 	position: static;
 	padding: 1px 0px;
-}
-header img
-{
-	float:right;
 }
 .profiles
 {
@@ -56,7 +59,34 @@ header img
 #registeren
 {
 	position: static;
+	width: 80%;
+	min-height: 250px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+	padding-top: 20px;
+}
+
+#fotopagina
+{
+	position: static;
 	width: 50%;
+	min-height: 250px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+	padding-top: 20px;
+}
+#test
+{
+	position: static;
+	width: 80%;
 	min-height: 250px;
 	height: auto;
 	display:block;

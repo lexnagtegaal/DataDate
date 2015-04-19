@@ -10,7 +10,6 @@ class Foto_model extends CI_Model {
 
 	public function enter(){
 		if($this->credentials->check_credentials()||NULL!==$this->session->flashdata('new_user')){ // Als het iemand is die (Terecht) is ingelogd of een nieuwe gebruiker!
-			echo "sesam open u";
 			//data preparen voor view
 			if(NULL!==$this->session->flashdata('new_user')){
 				$this->session->keep_flashdata('new_user'); //zowel bij een foutmelding, als de volgende stap van het aanmelden hebben we deze nog nodig!

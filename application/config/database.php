@@ -63,7 +63,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'sqlite:/home/students/5500206/www/WT/P3/database/mydbfile.sqlite',
+	'dsn'	=> 'sqlite:/home/students/4291247/www/webtech2/WP3/database/mydbfile.sqlite',
 	'hostname' => '',
 	'username' => '',
 	'password' => '',
