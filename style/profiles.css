@@ -7,7 +7,6 @@
 	height: auto;
 	display:block;
 	margin: auto;
-	marin-bottom: 3px;
 }
 
 #registeren div label
@@ -26,7 +25,6 @@
 	height: auto;
 	display:block;
 	margin: auto;
-	marin-bottom: 3px;
 }
 
 #inloggen div label
@@ -52,6 +50,7 @@
 	margin: 10px;
 	height: 300px;
 	width: 250px;
+	position:static;
 	display: inline-block;
 	background-color: #B0B0B0;
 	float:left; 
@@ -70,12 +69,12 @@
 #profielfoto img
 {
 	width: 100px;
-	heigth: 150px;
+	heigth:100px;
 }
+
 /* foto.php */
 #fotopagina img
 {
-	heigth: 100px;
 	width: 100px;
 }
 #fotopagina label
@@ -94,7 +93,6 @@
 	height: auto;
 	display:block;
 	margin: auto;
-	marin-bottom: 3px;
 }
 
 #test div div

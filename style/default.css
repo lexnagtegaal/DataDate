@@ -9,8 +9,8 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 /* HIER EIGEN CODE */
 .margin
 {
-		margin-left: 100px;
-		margin-right: 100px;
+	margin-left: 100px;
+	margin-right: 100px;
 }
 body
 {
@@ -31,6 +31,7 @@ body
 	position: static;
 	padding: 1px 0px;
 }
+
 .profiles
 {
 	position: static;
