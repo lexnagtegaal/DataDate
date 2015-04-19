@@ -121,7 +121,7 @@ class Register extends MY_Controller{
 	// DEZE FUNCTIE IS GETEST :) OP 18-04-2015 @ 09.22
 	public function leeftijd_check($date){
 
-		$leeftijd = $this->matching->leeftijd($date);
+		$Leeftijd = leeftijd($date);
 
 		// Leeftijd bekend, nu de controle
 		if($Leeftijd < 18){ // Te jong, dus return FALSE
