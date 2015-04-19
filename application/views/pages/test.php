@@ -10,18 +10,21 @@ for($i=1;array_push($vragenlijst,
 						'Vraag'		=> $i,
 						'A'			=> array(
 											'name'		=> 'vraag['.$i.']',
+											'class'		=> 'vraag_'.$i,
 											'ID'		=> 'vraag'.$i.'A',
 											'value'		=> 'A',
 											'Required'	=> 'TRUE'
 										),
 						'B'			=> array(
 											'name'		=> 'vraag['.$i.']',
+											'class'		=> 'vraag_'.$i,
 											'ID'		=> 'vraag'.$i.'B',
 											'value'		=> 'B',
 											'Required'	=> 'TRUE'
 										),
 						'C'			=> array(
 											'Name'		=> 'vraag['.$i.']',
+											'class'		=> 'vraag_'.$i,
 											'ID'		=> 'vraag'.$i.'C',
 											'value'		=> 'C',
 											'Required'	=> 'TRUE'
