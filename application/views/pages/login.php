@@ -9,13 +9,15 @@ echo form_open('Login', 'id="login"'); // creert een form die weer terugverwijst
 //Label en Input field voor het emailadres
 
 echo form_label('E-mailadres');
+$pattern = EmailRegex('a','TRUE')[0];
+$title = EmailRegex('a','TRUE')[1]; 
 echo form_input(array(
 			        'type'  => 'email',
 			        'name'  => 'email',
 					'id'	=> 'email',
 			        'value' => set_value('email'),
-					'pattern' => EmailRegex('',TRUE)[0],
-					'title' => EmailRegex('',TRUE)[1]
+					'pattern' => $pattern,
+					'title' => $title
 					),$required);
 
 //Label en Input field voor het wachtword

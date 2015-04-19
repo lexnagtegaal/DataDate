@@ -129,8 +129,6 @@ $answers=array(
 			)
 );
 
-
-
 echo form_open("Test","id='test'");
 
 foreach($vragen as $vraag){

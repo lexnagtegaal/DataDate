@@ -4,6 +4,7 @@ function EmailRegex()
 	//voor volledige emails.
 	$regex="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[\.]+[A-Za-z]{2,4}$/";
 	$error="Het opgegeven e-mailadres is geen correct e-mailadres.";
+	echo $input;
 	return Validate($input,$regex,$getregex,$error);
 }
 
@@ -31,12 +32,11 @@ function NameRegex($input,$getregex=false)
 	return Validate($input,$regex,$getregex,$error);
 }
 
-
 function Validate($input,$regex,$getregex,$error){
 	// De kracht achter de controle
 	if($getregex){
 		// stuurt de stringwaarde terug.
-		return [str_replace("/","",$regex),$error];
+		return array(str_replace("/","",$regex),$error);
 	}
 	if(preg_match($regex,$input)==1){
 		return TRUE;

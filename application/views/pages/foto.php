@@ -12,7 +12,6 @@ echo img(array(
 
 echo set_value('Plaatje');
 
-
 echo form_label("U kunt een foto selecteren om te gebruiken als profielfoto.","Plaatje");
 echo form_upload(array(
 					'name'	=>'userfile',
