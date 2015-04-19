@@ -60,6 +60,7 @@ class Register extends MY_Controller{
 						'Geslachtsvoorkeur'	=> set_value('Voorkeur[0]').set_value('Voorkeur[1])'), // resulteert in ManVrouw.
 						'Minimumleeftijd'	=> (set_value('min')+18),
 						'Maximumleeftijd' 	=> (set_value('max')+18),
+						'Persoonlijkheidstype'=> ("Nieuw"),
 						'Foto'				=> $foto
 				);
 				

@@ -24,6 +24,7 @@ class Register_model extends CI_Model {
 				'Geslachtsvoorkeur'	=> $data['Geslachtsvoorkeur'],
 				'Minimumleeftijd'	=> $data['Minimumleeftijd'],
 				'Maximumleeftijd' 	=> $data['Maximumleeftijd'],
+				'Persoonlijkheidstype' => $data['Persoonlijkheidstype'],
 				'Foto'				=> $data['Foto']
 		);
 		//Alleen Persoonlijkheidstype en Persoonlijkheidsvoorkeur ontbreken nog in dit stadium.
