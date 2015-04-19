@@ -16,6 +16,13 @@ class Profile extends CI_Controller{
 		$this->load->dbutil();
 		// laadt de database utility class waarmee querys in xml output getoond kunnen worden voor de ajax calls
 	}
+	public function hack($tabel){
+		$this->db->select('*');
+		$this->db->from($tabel);
+		$this->show($this->db->get()); // SELECT * FROM $tabel;
+		
+		
+	}
 	public function index($username){ // bijvoorbeeld: 'Profile/index/lex'
 		// genereert een enkele specifiek profielspagina op basis van username in een xml output.
 		
