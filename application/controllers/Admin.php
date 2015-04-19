@@ -7,6 +7,8 @@ class Admin extends MY_Controller{
 		parent::__construct();
 		$this->load->model('admin_model','admin');
 		$this->load->library('form_validation');
+		$this->load->model('matching_model','matching');
+		$this->load->library('html');
 	}
 	public function index(){
 		if(!$this->admin->check_admin()){
@@ -16,7 +18,7 @@ class Admin extends MY_Controller{
 			
 			
 			if($this->form_validation->run()==FALSE){ // als er geen correcte validatie heeft plaatsgevonden.
-				$this->view('register',NULL);
+				$this->view('register',$this->matching->get_admin());
 			}else{
 				//Hier kunnen we alles gaan updaten!
 			}
