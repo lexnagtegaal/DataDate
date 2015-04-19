@@ -36,7 +36,10 @@ function Validate($input,$regex,$getregex,$error){
 	// De kracht achter de controle
 	if($getregex){
 		// stuurt de stringwaarde terug.
-		return [str_replace("/","",$regex),$error];
+		return array(
+					str_replace("/","",$regex),
+					$error
+					);
 	}
 	if(preg_match($regex,$input)==1){
 		return TRUE;
