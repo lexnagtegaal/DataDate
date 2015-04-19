@@ -8,10 +8,11 @@ class Admin_model extends CI_Model {
 	public function check_admin(){
 		if($this->credentials->check_credentials()){
 			$this->load->database();
-			$this->load->session();
+			$this->load->library('session');
 			$this->db->select('Rechten');
+			$this->db->from('Gebruiker');
 			$this->db->where('Bijnaam',$this->session->userdata('username'));
-			$this->db->where('Rechten','admin');
+			$this->db->where('Rechten','Admin');
 			$query=$this->db->get();
 			if($query->num_rows()>0){
 				Return TRUE; //Er is een admin gevonden!

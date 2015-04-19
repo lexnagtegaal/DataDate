@@ -91,7 +91,22 @@ function type($voorkeur,$type){
 				400
 			);
 }
-
+function Like($voorkeur,$type,$alfa){
+	// Format opgeslagen in E | N | T | J (ongeacht de sterkte
+	$Has=values($type);	// de gebruiker heeft/has dit
+	$Wants=values($voorkeur); // en wilt/wants dit
+	foreach($Wants as $key=>$value){
+		$Wants[$key]=	( 	
+							(
+								$alfa * $value
+							) +
+							(
+								( 1-$alfa )*$Has[$key]
+							)
+						);
+	}
+	return $Wants['E']."|".$Wants['N']."|".$Wants['T']."|".$Wants['J'];
+}
 function leeftijd($date){
 	// Controleren of iemand 18 jaar oud is. Standaard formaat is afgedwongen tot MM-DD-YYYY
 	$exploded=explode("-",$date);
