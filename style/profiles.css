@@ -57,20 +57,22 @@
 	float:left; 
 }
 
-.random div:nth-child(even){ clear:right;}
+.random div:nth-child(odd){ clear:left;}
 
 .random th
 {
 	width: 150px;
 	padding: 5px;
 	vertical-align:top;
+	text-align:left;
 }
 
 #profielfoto img
 {
 	width: 100px;
-	heigth:100px;
+	height: 100px;
 }
+
 
 /* foto.php */
 #fotopagina img

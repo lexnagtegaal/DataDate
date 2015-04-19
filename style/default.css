@@ -63,6 +63,15 @@ body
 	padding: 10px;
 	padding-top: 20px;
 }
+
+#vrolijk
+{
+	float:right;
+	margin:10px;
+	margin-right:100px;
+	height: 400px;
+	width: 550px;
+}
 /* title */
 
 .title

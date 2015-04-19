@@ -33,7 +33,7 @@ header
 
 nav 
 {
-	position: static;
+	position: absolute;
 	display:block;
 	width: auto;
 	height: 25px;
