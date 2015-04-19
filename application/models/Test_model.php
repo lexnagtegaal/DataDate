@@ -11,13 +11,8 @@ class Test_model extends CI_Model {
 	public function status(){
 		if($this->credentials->check_credentials()||NULL!==$this->session->flashdata('new_user')){ // Als het iemand is die (Terecht) is ingelogd of een nieuwe gebruiker!
 		
-			//de juiste gebruiker opzoeken in deze stap.
-			if(NULL!==$this->session->flashdata('new_user')){
-				$user=$this->session->flashdata('new_user');
-			}else{
-				$user=$this->session->userdata('username');
-			}
-				
+
+			$user=$this->get_user();
 			/* We gaan op zoek naar de Persoonlijkheidstype
 			 * Omdat een nieuw lid halverwege het aanmeldproces eruitgegaan is, om het even welke reden.
 			 * Moet die wel de kans dit later alsnog in te vullen.
@@ -34,8 +29,17 @@ class Test_model extends CI_Model {
 				return TRUE;
 			}else{
 				return FALSE;
+			}
 		}
 	}
-}
+	
+	public function get_user(){
+		//de juiste gebruiker opzoeken in deze stap.
+		if(NULL!==$this->session->flashdata('new_user')){
+			return $this->session->flashdata('new_user');
+		}else{
+			return $this->session->userdata('username');
+		}
+	}
 }
 ?>

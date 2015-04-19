@@ -42,22 +42,18 @@ class Test extends MY_Controller{
 					switch(set_value('vraag['.$i.']')){ // roept de waarde op.
 						case "A":
 							if($i>=1 && $i<=5){ // De eerst 5 vragen
-								echo "vraag ".$i." is A";
 								$E=$E+10;
 								$I=$I-10;
 							}
 							if($i>=6 && $i<=9){ // vraag 6 tot en met 9
-								echo "vraag ".$i." is A";
 								$N=$N+12.5;
 								$S=$S-12.5;
 							}
 							if($i>=10 && $i<=13){ // Vraag 10 tot en met 13
-								echo "vraag ".$i." is A";
 								$T=$T+12.5;
 								$F=$F-12.5;
 							}
 							if($i>=14 && $i<=19){ // Vraag 14 tot en met 19
-								echo "vraag ".$i." is A";
 								$J=$J+8.3333;
 								$P=$P-8.3333;
 							}
@@ -65,41 +61,34 @@ class Test extends MY_Controller{
 
 						case "B":
 							if($i>=1 && $i<=5){ // De eerst 5 vragen
-								echo "vraag ".$i." is B";
 								$E=$E-10;
 								$I=$I+10;
 							}
 							if($i>=6 && $i<=9){ // vraag 6 tot en met 9
-								echo "vraag ".$i." is B";
 								$N=$N-12.5;
 								$S=$S+12.5;
 							}
 							if($i>=10 && $i<=13){ // Vraag 10 tot en met 13
-								echo "vraag ".$i." is B";
 								$T=$T-12.5;
 								$F=$F+12.5;
 							}
 							if($i>=14 && $i<=19){ // Vraag 14 tot en met 19
-								echo "vraag ".$i." is B";
 								$J=$J-8.3333;
 								$P=$P+8.3333;
 							}
 							break; // geen Default waarde vereist
-						default:
-							echo "vraag ".$i." is C";
-							break;
 					}
-					echo "<br/>";
 				}
-				echo "E=".$E."<br/>";
-				echo " I=".$I."<br/>";
-				echo " N=".$N."<br/>";
-				echo " S=".$S."<br/>";
-				echo " T=".$T."<br/>";
-				echo " F=".$F."<br/>";
-				echo " J=".$J."<br/>";
-				echo " P=".$P."<br/>";
-				/*
+
+				//Database aanpassen!
+				$update = array(
+						'Persoonlijkheidstype' 		=> $E."|".$N."|".$T."|".$J, // de andere 4 zijn te definieren op basis van deze 4.
+						'Persoonlijksheidvoorkeur' 	=> $I."|".$S."|".$F."|".$P // voorkeur voor de tegenpool
+						);
+				$this->load->database();
+				$this->db->where('Bijnaam',$this->test->get_user());
+				$this->db->update('Gebruikersprofiel',$update);
+				
 				//Gebruiker begeleiden naar het einde van de tour
 				$data['message']="Uw persoonlijkheidstype is aangemaakt."; // voor weergave op home pagina.
 				$page="login";
@@ -107,7 +96,6 @@ class Test extends MY_Controller{
 					$page="loginhome";
 				}
 				$this->view($page,$data); // gebruiker
-				*/
 			}
 		}else{
 			header('Location: '.base_url("home")); // terug naar start voor zij die geen toegang hebben!
