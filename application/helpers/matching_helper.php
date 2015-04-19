@@ -63,4 +63,49 @@ function overlap($X,$Y){ // optie D4 voor admin
 				)
 			);
 }
+function values($type){ // Gaat uit van de format E | N | T | J
+	$array=explode("|",$type);
+	return array(
+			'E'	=>	$array[0],
+			'N'	=>	$array[1],
+			'T'	=>	$array[2],
+			'J'	=>	$array[3],
+			'I'	=>	100-$array[0],
+			'S'	=>	100-$array[1],
+			'F'	=>	100-$array[2],
+			'P'	=>	100-$array[3]
+		);	 // lange leve php die "50" automatisch kan zien als een 50.
+}
+
+function type($voorkeur,$type){
+	// Format opgeslagen in E | N | T | J (ongeacht de sterkte
+	$Has=values($type);	// de gebruiker heeft/has dit
+	$Wants=values($voorkeur); // en wilt/wants dit
+	return 	( 	
+				(	
+					$Has['E']-$Wants['E']+
+					$Has['N']-$Wants['N']+
+					$Has['T']-$Wants['T']+
+					$Has['J']-$Wants['J']
+				)/
+				400
+			);
+}
+
+function leeftijd($date){
+	// Controleren of iemand 18 jaar oud is. Standaard formaat is afgedwongen tot MM-DD-YYYY
+	$exploded=explode("-",$date);
+	$geboortejaar=$exploded[0];
+	$Verjaardag = strtotime(str_replace(
+			$geboortejaar, 	// bijvoorbeeld 1988
+			date('Y'),				// bijvoorbeeld 2015
+			$date					// bijvoorbeeld 11/10/1988 -> 11/10/2015
+	));
+	$Leeftijd = date('Y')-$geboortejaar;		// bijvoorbeeld 2015-1988 -> 27
+	
+	if(strtotime("now")-$Verjaardag < 0){
+		$Leeftijd--;	// nog geen verjaardag gehad// Resultaat 26!
+	}
+	return $Leeftijd;
+}
 ?>
