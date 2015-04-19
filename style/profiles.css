@@ -73,10 +73,10 @@
 	height: 100px;
 }
 
-
 /* foto.php */
 #fotopagina img
 {
+	heigth: 100px;
 	width: 100px;
 }
 #fotopagina label
@@ -95,6 +95,7 @@
 	height: auto;
 	display:block;
 	margin: auto;
+	marin-bottom: 3px;
 }
 
 #test div div
@@ -113,3 +114,12 @@
 	width: auto;
 }
 
+/* admin */
+
+#admin label
+{
+	display: inline-block;
+	clear:right;
+	margin: 10px;
+	width: auto;
+}

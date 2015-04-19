@@ -1,3 +1,4 @@
+<div id="admin">
 <?php
 $D1=array(
 		'name'  => 'D',
@@ -104,5 +105,5 @@ echo form_input(array(
 <p>1 sluit verandering uit, 0 zorgt voor totale verandering</p>
 <?php
 echo form_submit('',"Aanpassen");
-echo form_close();
+echo form_close('</div>');
 ?>

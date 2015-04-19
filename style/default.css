@@ -63,6 +63,45 @@ body
 	padding: 10px;
 	padding-top: 20px;
 }
+#fotopagina
+{
+	position: static;
+	width: 80%;
+	min-height: 250px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+	padding-top: 20px;
+}
+#admin
+{
+	position: static;
+	width: 80%;
+	min-height: 250px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+	padding-top: 20px;
+}
+#test
+{
+	position: static;
+	width: 80%;
+	min-height: 250px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+	padding-top: 20px;
+}
 
 #vrolijk
 {

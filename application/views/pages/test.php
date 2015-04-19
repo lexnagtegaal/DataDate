@@ -1,3 +1,6 @@
+<div id="test">
+<h1 class="title">Persoonlijkheidstest</h1>
+
 <?php
 /* We creeren een array van vragen en de waarde die daarbij horen.
  * Deze laten we shuffelen met de hulp van de randomize functie in de rndm_helper
@@ -132,9 +135,10 @@ $answers=array(
 			)
 );
 
-echo form_open("Test","id='test'");
+echo form_open("Test");
 
 foreach($vragen as $vraag){
+	echo "<div>";
 	echo heading("Geef het antwoord dat het beste bij jou past",2);
 	$antwoorden=randomize(array("A","B"));
 	foreach($antwoorden as $antwoord){
@@ -144,10 +148,10 @@ foreach($vragen as $vraag){
 	$antwoord="C";
 	echo form_radio($vraag[$antwoord]); // resulteert in A,B of C van de bijbehorende vraag.
 	echo form_label($answers[$vraag['Vraag']][$antwoord],$vraag[$antwoord]['ID']);
-	
+	echo "</div>";
 }
-
+echo "<div>";
 echo form_submit('','Opsturen');
-
-echo form_close();
+echo "</div>";
+echo form_close('</div>');
 ?>
