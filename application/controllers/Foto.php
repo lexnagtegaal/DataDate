@@ -11,7 +11,8 @@ class Foto extends MY_Controller{
 	}
 	
 	public function index(){
-		$data=$this->foto->enter();
+		$data=[];
+		$data=$this->foto->enter($data);
 		if($data!==FALSE){
 			$this->view('foto',$data);
 		}
@@ -36,7 +37,7 @@ class Foto extends MY_Controller{
 			{
 				$data['foto']="image/".($this->upload->data()['file_name']); // overwrites de oude $Data['foto'] waarde vanuit enter();
 				$this->foto->update_picture($data);
-				if(NULL!==$this->session->flashdata('newuser')){ // We hebben een nieuwe gebruiker, dus naar de testpagina!
+				if(NULL!==$this->session->flashdata('new_user')){ // We hebben een nieuwe gebruiker, dus naar de testpagina!
 					$this->view('test',NULL);
 				}else{
 					$this->view('foto',$data); // het daadwerkelijke formulier!

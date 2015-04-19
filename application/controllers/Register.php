@@ -12,6 +12,7 @@ class Register extends MY_Controller{
 		$this->load->library('form_validation'); // voor de input validatie van het login formulier
 		$this->load->helper('regex');
 		$this->load->helper('merken');
+		$this->load->helper('rndm');
 	}
 	public function index(){
 
@@ -41,9 +42,9 @@ class Register extends MY_Controller{
 			}else{
 				// Het formulier voldoet aan alle eisen, dus de account kan aangemaakt worden!
 				if(set_value('Gender')=="Man"){
-					$foto=="image/Man.png"; // default plaatje man
+					$foto="image/Man.png"; // default plaatje man
 				}else{
-					$foto=="image/Vrouw.png"; // default plaatje vrouw
+					$foto="image/Vrouw.png"; // default plaatje vrouw
 				}
 				$data = array(
 						'Bijnaam' 			=> strtolower(set_value('Nickname')),
@@ -59,13 +60,22 @@ class Register extends MY_Controller{
 						'Geslachtsvoorkeur'	=> set_value('Voorkeur[0]').set_value('Voorkeur[1])'), // resulteert in ManVrouw.
 						'Minimumleeftijd'	=> (set_value('min')+18),
 						'Maximumleeftijd' 	=> (set_value('max')+18),
-						'foto'				=> $foto
+						'Foto'				=> $foto
 				);
-				$this->register->register($data); // deze functie vult de data in zowel de tabel Gebruiker als Gebruikersprofiel
 				
+
+				$this->register->register($data); // deze functie vult de data in zowel de tabel Gebruiker als Gebruikersprofiel				
+				
+				
+				//Klaarmaken voor de foto!!
 				$this->load->library('session');
+				$this->load->helper('html');
+				$load['user']=$data['Bijnaam'];
+				$load['foto']=$foto;
 				$this->session->set_flashdata('new_user',$data['Bijnaam']); // een tijdelijke sessievariabele om (ook al zijn we niet ingelogd toch namens de gebruiker de foto en de test uit te laten voeren!)
-				$this->view('foto',NULL);
+
+				// En klik!
+				$this->view('foto',$load);
 			}
 		}
 	}

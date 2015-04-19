@@ -20,10 +20,11 @@ class Profile extends CI_Controller{
 		// genereert een enkele specifiek profielspagina op basis van username in een xml output.
 		
 		$this->db->select('*');
-		$this->db->from('Gebruikersprofiel');
-		$this->db->where('Bijnaam',$username);
-		$this->db->limit(1);
-		$this->show($this->db->$get()); // SELECT * FROM GEBRUIKERSPROFIEL WHERE BIJNAAM=$USERNAME LIMIT 1;
+		$this->db->from('Gebruiker');
+		//$this->db->from('Gebruikersprofiel');
+		//$this->db->where('Bijnaam',$username);
+		//$this->db->limit(1);
+		$this->show($this->db->get()); // SELECT * FROM GEBRUIKERSPROFIEL WHERE BIJNAAM=$USERNAME LIMIT 1;
 	}
 	
 	public function random(){ // 'Profile/random'

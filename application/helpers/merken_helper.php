@@ -2,7 +2,7 @@
 
 function merken(){
 	// een array van 50 merken! op te roepen via merken() overal in de code omdat regex_helper overal geladen wordt!
-	return array(
+	$data = array(
 			"Coca-Cola",
 			"Pepsi",
 			"Fanta",
@@ -54,5 +54,6 @@ function merken(){
 			"M&S mode",
 			"Levies"
 	);
+	return randomize($data);
 }
 ?>
