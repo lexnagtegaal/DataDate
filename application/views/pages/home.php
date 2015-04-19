@@ -7,6 +7,3 @@
 	<a class="java" href="rndm">meer</a>
 </div>
 
-<div id="registeren">
-	<p> Registratie formulier wordt geladen</p>
-</div>
