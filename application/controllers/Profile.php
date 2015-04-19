@@ -1,27 +1,25 @@
 <?php
-header ("Content-Type:application/xml");
-/* Controller voor het tonen van profielpagina
- * Deze is bedoeld met ajaxcalls op te roepen
- * Het resultaat is in xlm output.
- * Dit is handig met de voorgedefinieerde library van code igniter.
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Profile extends CI_Controller{
+class Profile extends MY_Controller{
 	
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->dbutil();
+		$this->load->model('credentials');
+		$this->load->model('matching_model','matching');
+		$this->load->helper('form');
+		$this->load->helper('merken');
+		$this->load->helper('rndm');
+		$this->load->helper('regex');
+		$this->load->library('form_validation');
 		// laadt de database utility class waarmee querys in xml output getoond kunnen worden voor de ajax calls
 	}
 	public function hack($tabel){
 		$this->db->select('*');
 		$this->db->from($tabel);
-		$this->show($this->db->get()); // SELECT * FROM $tabel;
-		
-		
+		$this->show($this->db->get()); // SELECT * FROM $tabel;	
 	}
 	public function index($username){ // bijvoorbeeld: 'Profile/index/lex'
 		// genereert een enkele specifiek profielspagina op basis van username in een xml output.
@@ -99,8 +97,24 @@ class Profile extends CI_Controller{
 		 * Op javascript niveau opgeslagen en per 6 uitgelezen.
 		 */
 	}
-	
+	public function unique($username="username"){
+		$data=$this->matching->get_user($username); // haalt met behulp van matching_model.php alle data op van de profielweergave
+		if(!$data){
+			redirect("home");
+		}else{
+			$data['owner']=($username==$this->session->userdata('username'));
+			$data['Merken']=($this->matching->get_brands($this->session->userdata('username')));
+			$data['mailadres']=$data['E-mailadres'];
+			$this->view('profilepage',$data);
+		}
+	}
 	public function show($query){
+		header ("Content-Type:application/xml");
+		/* Controller voor het tonen van profielpagina
+		 * Deze is bedoeld met ajaxcalls op te roepen
+		 * Het resultaat is in xlm output.
+		 * Dit is handig met de voorgedefinieerde library van code igniter.
+		 */
 		$config = array (
 				'root'          => 'profiles',
 				'element'       => 'user',

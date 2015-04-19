@@ -12,12 +12,13 @@ class Matching_model extends CI_Model {
 		$this->db->from('Merk');
 		$this->db->where('Bijnaam',$user);
 		$query=$this->db->get();
-		$row=$query->row();
-		$result=array();
-		foreach($row as $key => $value){
+		return $query->row_array();
+		/*$result=array();
+		foreach($row as $value){
 			array_push($result,$value);
 		}
 		return $result;
+		*/
 	}
 	
 	public function get_admin(){
@@ -34,7 +35,10 @@ class Matching_model extends CI_Model {
 		$this->db->from('Gebruikersprofiel');
 		$this->db->where('Bijnaam',$user);
 		$query=$this->db->get(); // SELECT '*' FROM Gebruikersprofiel WHERE 'Bijnaam'=$user;
-		return $query->row_array();
+		if($query->num_rows()>0){
+			return $query->row_array();
+		}
+		return FALSE;
 		
 	}
 	public function match($other){
