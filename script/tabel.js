@@ -44,6 +44,7 @@ function createLink(object,attributen){
  */
 function createTable($data){
 
+	var URL='Profile/unique/'+$data['Bijnaam'];
 	var Type=$data['Persoonlijkheidstype']; // aanpassen nog!
 	var Tabel=document.createElement('table'); // geeft <tabel></tabel>
 	
@@ -58,7 +59,7 @@ function createTable($data){
 			'alt': $data['Bijnaam']
 			});
 	var Profielfoto=createLink(Foto,{
-									'href':'Profielfoto/unique/'+$data['Bijnaam']
+									'href':URL
 									});
 	var TH=createTH(Profielfoto,undefined); // <th>$profielfoto</th>
 	$(TR_parent).append(TH); // <tr id='Profielfoto>$TH</tr>
@@ -67,7 +68,10 @@ function createTable($data){
 	TH=createTH(undefined,undefined); // <th></th>
 	
 	//Eerst de Bijnaam toevoegen
-	var TH_inside=createTH(document.createTextNode($data['Bijnaam']),undefined);
+	var Profiel=createLink(document.createTextNode($data['Bijnaam']),{
+																		'href':URL
+																		});
+	var TH_inside=createTH(Profiel,undefined);
 	var TR_inside=createTR(TH_inside,undefined); // <tr><th>$bijnaam</th></tr>
 	$(TH).append(TR_inside);
 	
