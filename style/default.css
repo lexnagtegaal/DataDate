@@ -53,7 +53,7 @@ body
 #profielpagina
 {
 	position: static;
-	width: 80%;
+	width: 100%;
 	min-height: 150px;
 	height: auto;
 	display:block;
@@ -65,7 +65,7 @@ body
 #registeren
 {
 	position: static;
-	width: 50%;
+	width: 100%;
 	min-height: 250px;
 	height: auto;
 	display:block;
@@ -78,7 +78,7 @@ body
 #fotopagina
 {
 	position: static;
-	width: 80%;
+	width: 100%;
 	min-height: 250px;
 	height: auto;
 	display:block;
@@ -91,7 +91,7 @@ body
 #admin
 {
 	position: static;
-	width: 80%;
+	width: 100%;
 	min-height: 250px;
 	height: auto;
 	display:block;
@@ -104,7 +104,7 @@ body
 #test
 {
 	position: static;
-	width: 80%;
+	width: 100%;
 	min-height: 250px;
 	height: auto;
 	display:block;
