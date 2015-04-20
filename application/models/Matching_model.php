@@ -112,7 +112,7 @@ class Matching_model extends CI_Model {
 		}else{
 			$user_likes=$this->get_likes($user);
 			$other_likes=$this->get_likes($other);
-				return(in_array($other,$user_likes) && in_array($user,$other_likes)); // als de user voorkomt in het lijstje van de likes van de ander en vice versa
+			return(in_array($other,$user_likes) && in_array($user,$other_likes)); // als de user voorkomt in het lijstje van de likes van de ander en vice versa
 		}
 	}
 	
