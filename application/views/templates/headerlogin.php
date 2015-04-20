@@ -27,9 +27,10 @@
 		<nav>
 			<ul>
 				<li><a href="<?php echo base_url("home");?>">Home</a></li>
-				<li><a href="<?php echo base_url("profilepage");?>">Zoeken</a></li>
-				<li><a href="<?php echo base_url("login");?>">Inloggen</a></li>
-				<li><a href="<?php echo base_url("register");?>">Registeren</a></li>
+				<li><a href="<?php echo base_url("foto");?>">Foto aanpassen</a></li>
+				<li><a href="<?php echo base_url("zoeken");?>">Zoeken</a></li>
+				<li><a href="<?php echo base_url("profilepage");?>">Profielpagina</a></li>
+				<li><a href="<?php echo base_url("Login/loguit");?>">Uitloggen</a></li>
 			</ul>
 		</nav>	
 	</header>

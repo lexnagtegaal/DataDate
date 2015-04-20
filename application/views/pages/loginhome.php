@@ -5,5 +5,4 @@
 <p>De profielen worden geladen. Een ogenblik geduld a.u.b.</p>
 </div>
 <a class="java" href="rndm">meer</a>
-<a href="Login/loguit">Uitloggen</a>
 </div>

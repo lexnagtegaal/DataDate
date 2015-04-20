@@ -35,7 +35,7 @@ class Profile extends MY_Controller{
 	public function random(){ // 'Profile/random'
 		// Genereert 6 willekeurige profielen uit de databases in een xml output.
 
-		$this->show($this->db->query("SELECT * FROM GEBRUIKERSPROFIEL ORDER BY RANDOM() LIMIT 6;"));
+		$this->show($this->db->query('SELECT * FROM GEBRUIKERSPROFIEL ORDER BY RANDOM() LIMIT 3;'));
 	}
 	
 	public function matches(){
