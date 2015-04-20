@@ -14,22 +14,13 @@ class Profile extends MY_Controller{
 		$this->load->helper('rndm');
 		$this->load->helper('regex');
 		$this->load->library('form_validation');
+		$this->load->library('session');
 		// laadt de database utility class waarmee querys in xml output getoond kunnen worden voor de ajax calls
 	}
-	public function hack($tabel){
+	public function hack($tabel){ // Voor ontwikkelingsfase en nakijk redenen laten staan. Is uiteraard hackgevoelig. Maar handig middel.
 		$this->db->select('*');
 		$this->db->from($tabel);
 		$this->show($this->db->get()); // SELECT * FROM $tabel;	
-	}
-	public function index($username){ // bijvoorbeeld: 'Profile/index/lex'
-		// genereert een enkele specifiek profielspagina op basis van username in een xml output.
-		
-		$this->db->select('*');
-		$this->db->from('Gebruikersprofiel');
-		//$this->db->from('Gebruikersprofiel');
-		//$this->db->where('Bijnaam',$username);
-		//$this->db->limit(1);
-		$this->show($this->db->get()); // SELECT * FROM GEBRUIKERSPROFIEL WHERE BIJNAAM=$USERNAME LIMIT 1;
 	}
 	
 	public function random(){ // 'Profile/random'
@@ -42,44 +33,35 @@ class Profile extends MY_Controller{
 		// Genereert volledige array met matches op basis van ingelogd persoon
 		if($this->credentials->check_credentials()){
 			// Hier een qeury voor de matches!
+			$this->db->select('*');
+			$this->db->from('Gebruikersprofiel');
+			$query=$this->db->get(); // SELECT * FROM $tabel;
+			
+			//Testresultaten opmaken met behulp van de match functie binnen matching_model.
+			$resulaten=array();
+			foreach($query->result() as $row){
+				if($row->Bijnaam!==$this->session->userdata('username')){
+					$resultaten[$row->Bijnaam]=$this->matching->match($row->Bijnaam);
+				}
+			
+			//Nu de 6 resultaten weer op zoeken.
+			$best_six=array();
+			for($i=0;$i<5;$i++){
+				if(count($resultaten)>0){
+						$temp=max(array_keys($resultaten)); // de hoogste waarde
+						array_push($best_six,$temp); // best six ophogen
+						unset($resultaten[$temp]);
+					}
+				}
+			}
+			//Nu de beste 6 weergeven in xml formaat.
+			if(count($best_six)>0){
+				$this->db->limit(6);
+				$this->show($this->db->get_where('Gebruikersprofiel', $best_six));
+			}
 		}
 	}
 	
-	public function brand($username,$limit="0",$random=true){
-		/* functie voor het laden van de merken.
-		 * username is de username van wie de merken worden opgezocht
-		 * limit is de hoeveelheid (Standaard 0, dat resulteert in alle merken!)
-		 * random is of er een random waarde moet worden opgezocht ja of nee.
-		 */
-		
-		$this->db->select('Merk');
-		$this->db->from('Merk');
-		$this->db->where('Bijnaam',$usernaam);
-		if($random){ $this->db->order_by($limit,'RANDOM'); }
-		if($limit>0){ $this->db->limit($limit); }
-		$this->show($this->db->get()); // SELECT 'Merk' FROM MERK WHERE 'Bijnaam' = $BIJNAAM (ORDER BY RANDOM($LIMIT)) LIMIT $LIMIT;
-		
-	}
-	
-	public function search($gndr_pref,$min_age,$max_age,$I,$N,$T,$J,$brand_1,$brand_2,$brand_3,$brand_4){ 
-		// bijvoorbeeld: 'Profile/search/F/20/30/80/70/49/65/coca-cola/albert%20heijn/bbc/new%20yorker'
-		
-		/* Genereert een array van profielen uit de databases
-		 * op basis van verplichte variabelen
-		 * in een xml output.
-		 */
-		
-		/* Deze komt pas later!
-		 * Opzet hiervan is op php niveau een algoritme uit te voeren
-		 * die een volgorde bepaalt aan de hand van de variabelewaarde
-		 * en de rij in deze volgorde retourneert in xml waarde.
-		 * 
-		 * Op javascript niveau wordt deze volledig geladen en steeds met behulp van paginasation
-		 * class 6 van getoond. (De gehele array (of een maximum?) wordt geladen en doorgevoerd!
-		 * 
-		 * Op javascript niveau opgeslagen en per 6 uitgelezen.
-		 */
-	}
 	public function unique($username="username"){
 		
 		if(!($this->matching->get_user($username))){ // haalt met behulp van matching_model.php alle data op van de profielweergave)){
