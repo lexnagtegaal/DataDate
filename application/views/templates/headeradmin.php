@@ -29,7 +29,7 @@
 				<li><a href="<?php echo base_url("home");?>">Home</a></li>
 				<li><a href="<?php echo base_url("foto");?>">Foto aanpassen</a></li>
 				<li><a href="<?php echo base_url("test");?>">Persoonlijkheidstest</a></li>
-				<li><a href="<?php echo base_url("Profile/unique/".$this->session->userdata('username'));?>">Profielpagina</a></li>
+				<li><a href="<?php echo base_url("admin");?>">Admin</a></li>
 				<li><a href="<?php echo base_url("Login/loguit");?>">Uitloggen</a></li>
 			</ul>
 		</nav>	
