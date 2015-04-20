@@ -1,3 +1,4 @@
+
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href=" <?php echo base_url("style/default.css");?>">
@@ -8,7 +9,7 @@
 		<script type="text/javascript" src="<?php echo base_url("script/ajax.js");?>"></script>
 		<script type="text/javascript" src="<?php echo base_url("script/default.js");?>"></script>
 		<script type="text/javascript" src="<?php echo base_url("script/form.js");?>"></script>
-		<script type="text/javascript"src="<?php echo base_url("script/ajax.js");?>"></script>
+		<script type="text/javascript" src="<?php echo base_url("script/ajax.js");?>"></script>
 		
 		
 		<title><?php echo $title ?></title>
@@ -17,20 +18,19 @@
 	<header>
 		<div id="logo">
 		<a href="home" >
-			<img src=" <?php echo base_url("/image/logoP"); ?>">
+			<img src=" <?php echo base_url("/image/logoP"); ?>" alt="Logo">
 		</a>
 		<a href="home" >
-			<img src=" <?php echo base_url("/image/logoT"); ?>">
+			<img src=" <?php echo base_url("/image/logoT"); ?>" alt="Slogan">
 		</a>
 		</div>
 		<nav>
 			<ul>
 				<li><a href="<?php echo base_url("home");?>">Home</a></li>
-				<li><a href="<?php echo base_url("profilepage");?>">no go</a></li>
+				<li><a href="<?php echo base_url("profilepage");?>">Zoeken</a></li>
 				<li><a href="<?php echo base_url("login");?>">Inloggen</a></li>
 				<li><a href="<?php echo base_url("register");?>">Registeren</a></li>
 			</ul>
-		</nav>
-		
+		</nav>	
 	</header>
 <div id="content" class="margin">

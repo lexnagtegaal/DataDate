@@ -12,12 +12,23 @@ class Matching_model extends CI_Model {
 		$this->db->from('Merk');
 		$this->db->where('Bijnaam',$user);
 		$query=$this->db->get();
-		$row=$query->row();
-		$result=array();
-		foreach($row as $key => $value){
-			array_push($result,$value);
+		if($query->num_rows()>0){
+			return $query->row_array(); // Geeft elke Bijnaam die een Like aan jou gaf.
+		}else{
+			return array();
 		}
-		return $result;
+	}
+
+	public function get_likes($user){
+		$this->db->select('Bijnaam');
+		$this->db->from('Likes');
+		$this->db->where('Likes',$user);
+		$query=$this->db->get();
+		if($query->num_rows()>0){
+			return $query->row_array(); // Geeft elke Bijnaam die een Like aan jou gaf.
+		}else{
+			return array();
+		}
 	}
 	
 	public function get_admin(){
@@ -25,41 +36,42 @@ class Matching_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('Persoonlijkheid');
 		$query=$this->db->get(); // SELECT 'Persoonlijkheidstype' FROM Gebruikersprofiel WHERE 'Bijnaam'=$other;
-		$admin['Alfa']=$query->row()->Alfa;
-		$admin['Afstandsmaat']=$query->row()->Afstandsmaat;
-		$admin['Xfactor']=$query->row()->Xfactor;
+		$admin=$query->row_array();
 		return $admin;
 	}
-	public function match($other){
-		$user=$this->session->userdata('username'); // $user is gebruiker, $other is degene met wie vergeleken wordt.
-		
+	public function get_user($user){
 		//Krijg de data van de $user
 		$this->db->select('*');
 		$this->db->from('Gebruikersprofiel');
 		$this->db->where('Bijnaam',$user);
-		$Gebruiker=$this->db->get(); // SELECT '*' FROM Gebruikersprofiel WHERE 'Bijnaam'=$user;
+		$query=$this->db->get(); // SELECT '*' FROM Gebruikersprofiel WHERE 'Bijnaam'=$user;
+		if($query->num_rows()>0){
+			return $query->row_array();
+		}
+		return FALSE;
 		
-		//Krijg de data van de $other
-		$this->db->select('*');
-		$this->db->from('Gebruikersprofiel');
-		$this->db->where('Bijnaam',$other);
-		$Ander=$this->db->get(); // SELECT '*' FROM Gebruikersprofiel WHERE 'Bijnaam'=$other;
+	}
+	public function match($other){
+		$user=$this->session->userdata('username'); // $user is gebruiker, $other is degene met wie vergeleken wordt.
 		
+		$Gebruiker=$this->get_user($user);
+		$Ander=$this->get_user($user);
+	
 		//Krijg alle merken van $user als $X en $other als $y
-		$X = get_brands($user);
-		$Y = get_brands($other);
+		$X = $this->get_brands($user);
+		$Y = $this->get_brands($other);
 		
 		if(
 			strpos(
 					$Ander['Geslacht'],
 					$Gebruiker['Geslachtsvoorkeur']
 					)!==false &&
-			$Gebruiker['Minimumleeftijd']	<=	$this->matching->leeftijd( $Ander['Geboortedatum'] ) &&
-			$Gebruiker['Maximumleeftijd']	>=	$this->matching->leeftijd( $Ander['Geboortedatum'] )
+			$Gebruiker['Minimumleeftijd']	<=	leeftijd( $Ander['Geboortedatum'] ) &&
+			$Gebruiker['Maximumleeftijd']	>=	leeftijd( $Ander['Geboortedatum'] )
 			){
 				$distance=	max (	array(
-										$this->matching->type($Gebruiker['Persoonlijksheidvoorkeur'],$Ander['Persoonlijkheidstype']),
-										$this->matching->type($Ander['Persoonlijksheidvoorkeur'],$Gebruiker['Persoonlijkheidstype'])
+										type($Gebruiker['Persoonlijksheidvoorkeur'],$Ander['Persoonlijkheidstype']),
+										type($Ander['Persoonlijksheidvoorkeur'],$Gebruiker['Persoonlijkheidstype'])
 									)
 								);
 				
@@ -67,16 +79,16 @@ class Matching_model extends CI_Model {
 				
 				switch ($ADMIN['Afstandsmaat']){
 					case "D2": // D1 gaat gelijk met Default
-						$brands=$this->matching->jacard($X,$Y);
+						$brands=jacard($X,$Y);
 						break;
 					case "D3":
-						$brands=$this->matching->cosine($X,$Y);
+						$brands=cosine($X,$Y);
 						break;
 					case "D4":
-						$brands=$this->matching->overlap($X,$Y);
+						$brands=overlap($X,$Y);
 						break;
 					default:
-						$brands=$this->matching->dice($X,$Y);
+						$brands=dice($X,$Y);
 						break;
 				}
 				
@@ -93,9 +105,26 @@ class Matching_model extends CI_Model {
 		}
 		
 	}
+	public function is_match($other){
+		$user=$this->session->userdata('username');
+		if($user==$other){
+			return FALSE;
+		}else{
+			$user_likes=$this->get_likes($user);
+			$other_likes=$this->get_likes($other);
+				return(in_array($other,$user_likes) && in_array($user,$other_likes)); // als de user voorkomt in het lijstje van de likes van de ander en vice versa
+		}
+	}
 	
 	public function like($other){
-		
+		$user=$this->session->userdata('username');
+		$ADMIN=$this->get_admin();
+		$Gebruiker=$this->get_user($user);
+		$Ander=$this->get_user($other);
+		$New_Voorkeur=Like($Gebruiker['Persoonlijksheidvoorkeur'],$Ander['Persoonlijkheidstype'],$ADMIN['Alfa']);
+		$this->db->update('Persoonlijksheidvoorkeur',$New_Voorkeur);
+		$this->db->where('Bijnaam',$user);
+		$this->db->get();
 	}
 }
 ?>

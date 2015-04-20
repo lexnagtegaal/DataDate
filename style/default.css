@@ -9,8 +9,8 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 /* HIER EIGEN CODE */
 .margin
 {
-		margin-left: 100px;
-		margin-right: 100px;
+	margin-left: 100px;
+	margin-right: 100px;
 }
 body
 {
@@ -24,10 +24,7 @@ body
 	position: static;
 	padding: 1px 0px;
 }
-header img
-{
-	float:right;
-}
+
 .profiles
 {
 	position: static;
@@ -53,10 +50,22 @@ header img
 	border-radius: 25px;
 	padding-top: 20px;
 }
+#profielpagina
+{
+	position: static;
+	width: 100%;
+	min-height: 150px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+}
 #registeren
 {
 	position: static;
-	width: 50%;
+	width: 100%;
 	min-height: 250px;
 	height: auto;
 	display:block;
@@ -65,6 +74,54 @@ header img
 	border-radius: 25px;
 	padding: 10px;
 	padding-top: 20px;
+}
+#fotopagina
+{
+	position: static;
+	width: 100%;
+	min-height: 250px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+	padding-top: 20px;
+}
+#admin
+{
+	position: static;
+	width: 100%;
+	min-height: 250px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+	padding-top: 20px;
+}
+#test
+{
+	position: static;
+	width: 100%;
+	min-height: 250px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+	padding-top: 20px;
+}
+
+#vrolijk
+{
+	float:right;
+	margin:10px;
+	margin-right:100px;
+	height: 400px;
+	width: 550px;
 }
 /* title */
 

@@ -7,17 +7,14 @@
 	height: auto;
 	display:block;
 	margin: auto;
-	marin-bottom: 3px;
 }
 
 #registeren div label
 {
 	display: inline-block;
 	margin: 10px;
-	width: 50px;
+	width: 100px;
 }
-.normalLabel{width: 200px;}
-
 
 /* inloggen */
 
@@ -28,8 +25,8 @@
 	height: auto;
 	display:block;
 	margin: auto;
-	marin-bottom: 3px;
 }
+
 
 #inloggen div label
 {
@@ -54,19 +51,88 @@
 	margin: 10px;
 	height: 300px;
 	width: 250px;
+	position:static;
 	display: inline-block;
 	background-color: #B0B0B0;
+	float:left; 
 }
-.random div:child(even){ float:clear;}
+
+.random div:nth-child(odd){ clear:left;}
 
 .random th
 {
 	width: 150px;
 	padding: 5px;
+	vertical-align:top;
+	text-align:left;
 }
 
 #profielfoto img
 {
-	width: 50px;
-	heigth: 50px;
+	width: 100px;
+	height: 100px;
+}
+
+/* foto.php */
+#fotopagina img
+{
+	heigth: 100px;
+	width: 100px;
+}
+#fotopagina label
+{
+	display: inline-block;
+	margin: 10px;
+	width: auto;
+}
+
+/* test */
+
+#test div
+{
+	position: static;
+	width: 80%;
+	height: auto;
+	display:block;
+	margin: auto;
+	marin-bottom: 3px;
+}
+
+#test div div
+{
+	position: static;
+	width: 100%;
+	height: auto;
+	display:block;
+	margin: auto;
+}
+#test label
+{
+	display: inline-block;
+	clear:right;
+	margin: 10px;
+	width: auto;
+}
+/* profielpagina */
+
+#profielpagina label
+{
+	display: inline-block;
+	clear:right;
+	margin: 10px;
+	width: 100px;;
+}
+#profielpagina img
+{
+	width: 100px;
+	heigth:100px;
+}
+/* admin */
+
+#admin label
+{
+	display: inline-block;
+	clear:right;
+	margin: 10px;
+	width: auto;
 }
