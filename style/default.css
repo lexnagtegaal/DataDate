@@ -50,6 +50,18 @@ body
 	border-radius: 25px;
 	padding-top: 20px;
 }
+#profielpagina
+{
+	position: static;
+	width: 80%;
+	min-height: 150px;
+	height: auto;
+	display:block;
+	margin: auto;
+	background-color: #808080;
+	border-radius: 25px;
+	padding: 10px;
+}
 #registeren
 {
 	position: static;

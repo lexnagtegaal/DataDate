@@ -113,7 +113,20 @@
 	margin: 10px;
 	width: auto;
 }
+/* profielpagina */
 
+#profielpagina label
+{
+	display: inline-block;
+	clear:right;
+	margin: 10px;
+	width: 100px;;
+}
+#profielpagina img
+{
+	width: 100px;
+	heigth:100px;
+}
 /* admin */
 
 #admin label

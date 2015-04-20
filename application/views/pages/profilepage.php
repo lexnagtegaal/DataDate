@@ -225,5 +225,10 @@ echo form_submit('','Aanpassen');
 
 echo form_close('</div>');
 }
+else{
+?>
+	<a href="<?php echo base_url("login");?>">Kom in contact met elkaar</a>
+<?php 
+}
 ?>
 </div>
