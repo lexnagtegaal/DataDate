@@ -15,8 +15,6 @@ class MY_Controller extends CI_Controller {
 			show_404();
 		}
 		else{
-	
-		
 		
 		if($this->credentials->check_credentials()){
 			$this->load->view('templates/headerlogin', $data); // laadt de defaultpagina voor gebruikers.
