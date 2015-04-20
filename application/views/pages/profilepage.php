@@ -3,6 +3,11 @@
 <h1 class="title"><?php echo $Bijnaam ?></h1>
 </div>
 <div>
+<?php
+if(!$this->credentials->check_credentials()){
+	$Foto="image/".$Geslacht.".png";
+}
+?>
 <img src='<?php echo base_url($Foto); ?>' alt='<?php echo $Bijnaam;?>'>
 <?php
 if($owner){
@@ -17,7 +22,7 @@ $required = "required"; // extra variabele om toe te kennen dat een input elemen
 if($owner){
 	echo validation_errors(); // toont PHP server-side errors van het ingevulde formulier.
 	
-	echo form_open('Profile/unique'.$owner, 'id="register"');
+	echo form_open('Profile/unique/'.$this->session->userdata('username'), 'id="register"');
 }
 ?>
 <div>
@@ -89,7 +94,11 @@ if($owner){
 		'required' => TRUE
 ));
 }else{
-	echo $mailadres;
+	if($match){
+		echo $mailadres;
+	}else{
+		echo "Het mailadres van ".$Bijnaam." is alleen beschikbaar als jullie samen een match zijn.";
+	}
 }
 ?>
 </div>
@@ -154,12 +163,22 @@ if( strpos( "Vrouw", $Geslachtsvoorkeur )!==false ) {
 			'checked' => TRUE
 	);
 }
-
-echo form_label("mannen","Male");
-echo form_checkbox($male);
-echo form_label("vrouwen","Female");
-echo form_checkbox($female);
-?>
+if($owner){
+	echo form_label("mannen","Male");
+	echo form_checkbox($male);
+}else if( strpos( "Man", $Geslachtsvoorkeur )!==false ) {
+	echo "Mannen";
+}
+if($Geslachtsvoorkeur=="ManVrouw"){
+	echo "en";
+}
+if($owner){
+	echo form_label("vrouwen","Female");
+	echo form_checkbox($female);
+}else if( strpos( "Vrouw", $Geslachtsvoorkeur )!==false ) {
+	echo "Vrouwen";
+}
+	?>
 </div>
 <div>
 <?php 
@@ -169,16 +188,34 @@ for($a=18;$a<=100;$a++){ // maximale invoer is 100. 100 zien we als 100+ (om rek
 	array_push($age,$a);
 }
 echo form_label("tussen","id='test'");
+if($owner){
 echo form_dropdown("min",$age,"id='min' required='1' value='".($Minimumleeftijd-18)."'");
+}else{
+	echo $Minimumleeftijd;
+}
 echo form_label("en");
+if($owner){
 echo form_dropdown("max",$age,"id='max' required='1' value='".($Maximumleeftijd-18)."'");
+}else{
+	echo $Maximumleeftijd;
+}
 ?>
 </div>
 <div>
 <?php 
 //Merken kiezen uit een lijst van 50 uit merken() van regex_helper().
 echo form_label("Mijn favoriete merken");
-echo form_multiselect("merken[]",merken(),$Merken,"id='merken' required='1'");
+if($owner){
+	echo form_multiselect("merken[]",merken(),$Merken,"id='merken' required='1'");
+}else{
+	if(is_array($Merken)){
+		foreach($Merken as $merk){
+			echo "<span class='Merk'>".$merk."</span>";
+		}
+	}else{
+		echo "Ik heb nog geen favoriete merken geselecteerd.";
+	}
+}
 ?>
 </div>
 <div>
@@ -186,7 +223,7 @@ echo form_multiselect("merken[]",merken(),$Merken,"id='merken' required='1'");
 if($owner){
 echo form_submit('','Aanpassen');
 
-echo form_c-lose('</div>');
+echo form_close('</div>');
 }
 ?>
 </div>

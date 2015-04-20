@@ -127,7 +127,6 @@ class Profile extends MY_Controller{
 				$this->db->update('Gebruikersprofiel',$updaten);
 				$this->db->where('Bijnaam',$this->session->userdata('username'));
 				$this->db->delete('Merk');
-				print_r($merk_array);
 				for($i=0;$i<count($merk_array);$i++){
 					$merken= array(
 							'Bijnaam'			=> $this->session->userdata('username'),
